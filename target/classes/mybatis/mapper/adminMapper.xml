@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.database.attractions.mapper.AdminMapper">
+
+    <select id="getScenicAreas" resultType="java.util.LinkedHashMap">
+        SELECT scenicareaID AS sid,
+               sName        AS name,
+               sOpenTime    AS openTime,
+               sAddress     AS address,
+               sInfo        AS info,
+               tprice       AS price
+        FROM tbl_scenicarea,
+             tbl_ticket
+        WHERE tbl_ticket.ticketID = tbl_scenicarea.ticketID;
+    </select>
+
+    <update id="updataScenicAreas" parameterType="com.database.attractions.bean.ScenicArea">
+        UPDATE
+            tbl_scenicarea
+        SET sName     = #{name},
+            sOpenTime = #{openTime},
+            sAddress  = #{address},
+            sInfo= #{info}
+        WHERE scenicareaID = #{sid};
+    </update>
+
+    <update id="updataPrice">
+        UPDATE
+            tbl_ticket
+        SET tPrice = #{price}
+        WHERE ticketID =
+              (SELECT ticketID FROM tbl_scenicarea WHERE scenicareaID = #{sid});
+    </update>
+
+</mapper>

@@ -1,0 +1,1214 @@
+DEBUG http-nio-8080-exec-4 druid.sql.ResultSet - {conn-10035, pstmt-20134, rs-50331} Header: [aName, remain]
+DEBUG http-nio-8080-exec-4 druid.sql.ResultSet - {conn-10035, pstmt-20134, rs-50331} Result: [好莱坞环球影城™, 2987]
+DEBUG http-nio-8080-exec-4 druid.sql.ResultSet - {conn-10035, pstmt-20134, rs-50331} closed
+DEBUG http-nio-8080-exec-4 druid.sql.Statement - {conn-10035, pstmt-20134} clearParameters. 
+DEBUG http-nio-8080-exec-4 druid.sql.Connection - {conn-10035} pool-recycle
+DEBUG http-nio-8080-exec-4 druid.sql.Connection - {conn-10035} pool-connect
+DEBUG http-nio-8080-exec-4 druid.sql.Statement - {conn-10035, pstmt-20135} created. SELECT * FROM `Attractions`.`view_overview` ORDER BY scenicareaID;
+DEBUG http-nio-8080-exec-4 druid.sql.Statement - {conn-10035, pstmt-20135} Parameters : []
+DEBUG http-nio-8080-exec-4 druid.sql.Statement - {conn-10035, pstmt-20135} Types : []
+DEBUG http-nio-8080-exec-4 druid.sql.Statement - {conn-10035, pstmt-20135} executed. 63.1892 millis. SELECT * FROM `Attractions`.`view_overview` ORDER BY scenicareaID;
+DEBUG http-nio-8080-exec-4 druid.sql.ResultSet - {conn-10035, pstmt-20135, rs-50332} open
+DEBUG http-nio-8080-exec-4 druid.sql.ResultSet - {conn-10035, pstmt-20135, rs-50332} Header: [scenicareaID, sName, tprice, sOpenTime, sAddress, numberSold]
+DEBUG http-nio-8080-exec-4 druid.sql.ResultSet - {conn-10035, pstmt-20135, rs-50332} Result: [1, 波特禁忌之旅™, 100.0, 8:00-22:00, 哈利波特的魔法世界™, 0]
+DEBUG http-nio-8080-exec-4 druid.sql.ResultSet - {conn-10035, pstmt-20135, rs-50332} Result: [2, 霍格沃茨™城堡黑魔法之夜, 49.0, 8:00-22:00, 哈利波特的魔法世界™, 0]
+DEBUG http-nio-8080-exec-4 druid.sql.ResultSet - {conn-10035, pstmt-20135, rs-50332} Result: [3, 金刚360度3D历险, 0.0, 8:00-22:00, 金刚称霸, 0]
+DEBUG http-nio-8080-exec-4 druid.sql.ResultSet - {conn-10035, pstmt-20135, rs-50332} Result: [4, 淘气旋转过山车, 23.5, 8:00-22:00, 淘气旋转过山车, 0]
+DEBUG http-nio-8080-exec-4 druid.sql.ResultSet - {conn-10035, pstmt-20135, rs-50332} Result: [5, 水世界®, 66.5, 8:00-22:00, 水世界, 0]
+DEBUG http-nio-8080-exec-4 druid.sql.ResultSet - {conn-10035, pstmt-20135, rs-50332} Result: [6, 侏罗纪世界-激流勇进, 168.0, 8:00-22:00, 侏罗纪世界-激流勇进, 0]
+DEBUG http-nio-8080-exec-4 druid.sql.ResultSet - {conn-10035, pstmt-20135, rs-50332} Result: [7, 环球影城动物演员, 68.0, 8:00-22:00, 环球影城动物演员, 0]
+DEBUG http-nio-8080-exec-4 druid.sql.ResultSet - {conn-10035, pstmt-20135, rs-50332} Result: [8, 鹰马的飞行, 98.0, 8:00-22:00, 鹰马的飞行, 0]
+DEBUG http-nio-8080-exec-4 druid.sql.ResultSet - {conn-10035, pstmt-20135, rs-50332} Result: [9, 梦工厂功夫熊猫, 68.0, 8:00-22:00, 梦工厂功夫熊猫, 0]
+DEBUG http-nio-8080-exec-4 druid.sql.ResultSet - {conn-10035, pstmt-20135, rs-50332} Result: [10, 速度与激情——超动力, 328.0, 8:00-22:00, 速度与激情——超动力, 0]
+DEBUG http-nio-8080-exec-4 druid.sql.ResultSet - {conn-10035, pstmt-20135, rs-50332} closed
+DEBUG http-nio-8080-exec-4 druid.sql.Statement - {conn-10035, pstmt-20135} clearParameters. 
+DEBUG http-nio-8080-exec-4 druid.sql.Connection - {conn-10035} pool-recycle
+DEBUG http-nio-8080-exec-6 druid.sql.Connection - {conn-10035} pool-connect
+DEBUG http-nio-8080-exec-6 druid.sql.Statement - {conn-10035, pstmt-20136} created. SELECT
+            tbl_trade.tradeID AS tradeID,
+            tbl_user.userID AS uid,
+            name,
+            telnumber,
+            tType,
+            totalPrice AS price,
+            orderDate,
+            tradeDate,
+            isRefund,
+            tbl_trade.numberOfPeople AS numberOfPeople
+        FROM tbl_trade,tbl_user
+        WHERE
+            tbl_trade.userID = tbl_user.userID AND
+                tbl_trade.tradeID IN (
+                SELECT DISTINCT
+                    tbl_tradeDetail.tradeID
+                FROM tbl_tradeDetail
+                WHERE userID = ?
+            );
+DEBUG http-nio-8080-exec-6 druid.sql.Statement - {conn-10035, pstmt-20136} Parameters : [1]
+DEBUG http-nio-8080-exec-6 druid.sql.Statement - {conn-10035, pstmt-20136} Types : [VARCHAR]
+DEBUG http-nio-8080-exec-6 druid.sql.Statement - {conn-10035, pstmt-20136} executed. 63.0501 millis. SELECT
+            tbl_trade.tradeID AS tradeID,
+            tbl_user.userID AS uid,
+            name,
+            telnumber,
+            tType,
+            totalPrice AS price,
+            orderDate,
+            tradeDate,
+            isRefund,
+            tbl_trade.numberOfPeople AS numberOfPeople
+        FROM tbl_trade,tbl_user
+        WHERE
+            tbl_trade.userID = tbl_user.userID AND
+                tbl_trade.tradeID IN (
+                SELECT DISTINCT
+                    tbl_tradeDetail.tradeID
+                FROM tbl_tradeDetail
+                WHERE userID = ?
+            );
+DEBUG http-nio-8080-exec-6 druid.sql.ResultSet - {conn-10035, pstmt-20136, rs-50333} open
+DEBUG http-nio-8080-exec-6 druid.sql.ResultSet - {conn-10035, pstmt-20136, rs-50333} Header: [tradeID, userID, name, telnumber, tType, totalPrice, orderDate, tradeDate, isRefund, numberOfPeople]
+DEBUG http-nio-8080-exec-6 druid.sql.ResultSet - {conn-10035, pstmt-20136, rs-50333} Result: [16257265042755, 1, 张三, 123456, group, 1299.15, 2021-07-08, 2021-07-08 14:41:44.0, 1, 5]
+DEBUG http-nio-8080-exec-6 druid.sql.ResultSet - {conn-10035, pstmt-20136, rs-50333} Result: [16257268347134, 350204200001011085, 王小明, 1800244832, group, 1022.0, 2021-07-12, 2021-07-08 14:47:14.0, 1, 3]
+DEBUG http-nio-8080-exec-6 druid.sql.ResultSet - {conn-10035, pstmt-20136, rs-50333} closed
+DEBUG http-nio-8080-exec-6 druid.sql.Statement - {conn-10035, pstmt-20136} clearParameters. 
+DEBUG http-nio-8080-exec-6 druid.sql.Connection - {conn-10035} pool-recycle
+DEBUG http-nio-8080-exec-6 druid.sql.Connection - {conn-10035} pool-connect
+DEBUG http-nio-8080-exec-6 druid.sql.Statement - {conn-10035, pstmt-20137} created. SELECT
+            tbl_user.userID AS uid,
+            name,
+            telnumber,
+            tbl_tradeDetail.tprice AS price
+        FROM tbl_user,tbl_tradeDetail
+        WHERE tbl_user.userID=tbl_tradeDetail.userID AND
+            tbl_tradeDetail.tradeID = ? AND
+            tbl_tradeDetail.ticketID=1 AND
+                tbl_user.userID IN
+                (SELECT DISTINCT tbl_tradeDetail.userID
+                 FROM tbl_tradeDetail
+                 WHERE
+                     tbl_tradeDetail.tradeID = ? AND
+                     tbl_tradeDetail.ticketID=1);
+DEBUG http-nio-8080-exec-6 druid.sql.Statement - {conn-10035, pstmt-20137} Parameters : [16257265042755, 16257265042755]
+DEBUG http-nio-8080-exec-6 druid.sql.Statement - {conn-10035, pstmt-20137} Types : [BIGINT, BIGINT]
+DEBUG http-nio-8080-exec-6 druid.sql.Statement - {conn-10035, pstmt-20137} executed. 62.862 millis. SELECT
+            tbl_user.userID AS uid,
+            name,
+            telnumber,
+            tbl_tradeDetail.tprice AS price
+        FROM tbl_user,tbl_tradeDetail
+        WHERE tbl_user.userID=tbl_tradeDetail.userID AND
+            tbl_tradeDetail.tradeID = ? AND
+            tbl_tradeDetail.ticketID=1 AND
+                tbl_user.userID IN
+                (SELECT DISTINCT tbl_tradeDetail.userID
+                 FROM tbl_tradeDetail
+                 WHERE
+                     tbl_tradeDetail.tradeID = ? AND
+                     tbl_tradeDetail.ticketID=1);
+DEBUG http-nio-8080-exec-6 druid.sql.ResultSet - {conn-10035, pstmt-20137, rs-50334} open
+DEBUG http-nio-8080-exec-6 druid.sql.ResultSet - {conn-10035, pstmt-20137, rs-50334} Header: [userID, name, telnumber, tprice]
+DEBUG http-nio-8080-exec-6 druid.sql.ResultSet - {conn-10035, pstmt-20137, rs-50334} Result: [1, 张三, 123456, 100.0]
+DEBUG http-nio-8080-exec-6 druid.sql.ResultSet - {conn-10035, pstmt-20137, rs-50334} Result: [10, 王大锤, 123, 100.0]
+DEBUG http-nio-8080-exec-6 druid.sql.ResultSet - {conn-10035, pstmt-20137, rs-50334} Result: [123456, fjj, 123456, 100.0]
+DEBUG http-nio-8080-exec-6 druid.sql.ResultSet - {conn-10035, pstmt-20137, rs-50334} Result: [2, 李四, 123, 100.0]
+DEBUG http-nio-8080-exec-6 druid.sql.ResultSet - {conn-10035, pstmt-20137, rs-50334} Result: [4, 赵六, 123, 100.0]
+DEBUG http-nio-8080-exec-6 druid.sql.ResultSet - {conn-10035, pstmt-20137, rs-50334} closed
+DEBUG http-nio-8080-exec-6 druid.sql.Statement - {conn-10035, pstmt-20137} clearParameters. 
+DEBUG http-nio-8080-exec-6 druid.sql.Connection - {conn-10035} pool-recycle
+DEBUG http-nio-8080-exec-6 druid.sql.Connection - {conn-10035} pool-connect
+DEBUG http-nio-8080-exec-6 druid.sql.Statement - {conn-10035, pstmt-20137} Parameters : [16257268347134, 16257268347134]
+DEBUG http-nio-8080-exec-6 druid.sql.Statement - {conn-10035, pstmt-20137} Types : [BIGINT, BIGINT]
+DEBUG http-nio-8080-exec-6 druid.sql.Statement - {conn-10035, pstmt-20137} executed. 66.4382 millis. SELECT
+            tbl_user.userID AS uid,
+            name,
+            telnumber,
+            tbl_tradeDetail.tprice AS price
+        FROM tbl_user,tbl_tradeDetail
+        WHERE tbl_user.userID=tbl_tradeDetail.userID AND
+            tbl_tradeDetail.tradeID = ? AND
+            tbl_tradeDetail.ticketID=1 AND
+                tbl_user.userID IN
+                (SELECT DISTINCT tbl_tradeDetail.userID
+                 FROM tbl_tradeDetail
+                 WHERE
+                     tbl_tradeDetail.tradeID = ? AND
+                     tbl_tradeDetail.ticketID=1);
+DEBUG http-nio-8080-exec-6 druid.sql.ResultSet - {conn-10035, pstmt-20137, rs-50335} open
+DEBUG http-nio-8080-exec-6 druid.sql.ResultSet - {conn-10035, pstmt-20137, rs-50335} Header: [userID, name, telnumber, tprice]
+DEBUG http-nio-8080-exec-6 druid.sql.ResultSet - {conn-10035, pstmt-20137, rs-50335} Result: [1, 张三, 123456, 100.0]
+DEBUG http-nio-8080-exec-6 druid.sql.ResultSet - {conn-10035, pstmt-20137, rs-50335} Result: [2, 李四, 123, 100.0]
+DEBUG http-nio-8080-exec-6 druid.sql.ResultSet - {conn-10035, pstmt-20137, rs-50335} Result: [4, 赵六, 123, 100.0]
+DEBUG http-nio-8080-exec-6 druid.sql.ResultSet - {conn-10035, pstmt-20137, rs-50335} closed
+DEBUG http-nio-8080-exec-6 druid.sql.Statement - {conn-10035, pstmt-20137} clearParameters. 
+DEBUG http-nio-8080-exec-6 druid.sql.Connection - {conn-10035} pool-recycle
+DEBUG Druid-ConnectionPool-Create-6444791 druid.sql.Connection - {conn-10036,procId-1603610} connected
+DEBUG http-nio-8080-exec-5 druid.sql.Connection - {conn-10036} pool-connect
+DEBUG http-nio-8080-exec-5 druid.sql.Statement - {conn-10036, pstmt-20138} created. SELECT * FROM `Attractions`.`view_overview` ORDER BY scenicareaID;
+DEBUG http-nio-8080-exec-5 druid.sql.Statement - {conn-10036, pstmt-20138} Parameters : []
+DEBUG http-nio-8080-exec-5 druid.sql.Statement - {conn-10036, pstmt-20138} Types : []
+DEBUG http-nio-8080-exec-5 druid.sql.Statement - {conn-10036, pstmt-20138} executed. 61.4444 millis. SELECT * FROM `Attractions`.`view_overview` ORDER BY scenicareaID;
+DEBUG http-nio-8080-exec-5 druid.sql.ResultSet - {conn-10036, pstmt-20138, rs-50336} open
+DEBUG http-nio-8080-exec-5 druid.sql.ResultSet - {conn-10036, pstmt-20138, rs-50336} Header: [scenicareaID, sName, tprice, sOpenTime, sAddress, numberSold]
+DEBUG http-nio-8080-exec-5 druid.sql.ResultSet - {conn-10036, pstmt-20138, rs-50336} Result: [1, 波特禁忌之旅™, 100.0, 8:00-22:00, 哈利波特的魔法世界™, 0]
+DEBUG http-nio-8080-exec-5 druid.sql.ResultSet - {conn-10036, pstmt-20138, rs-50336} Result: [2, 霍格沃茨™城堡黑魔法之夜, 49.0, 8:00-22:00, 哈利波特的魔法世界™, 0]
+DEBUG http-nio-8080-exec-5 druid.sql.ResultSet - {conn-10036, pstmt-20138, rs-50336} Result: [3, 金刚360度3D历险, 0.0, 8:00-22:00, 金刚称霸, 0]
+DEBUG http-nio-8080-exec-5 druid.sql.ResultSet - {conn-10036, pstmt-20138, rs-50336} Result: [4, 淘气旋转过山车, 23.5, 8:00-22:00, 淘气旋转过山车, 0]
+DEBUG http-nio-8080-exec-5 druid.sql.ResultSet - {conn-10036, pstmt-20138, rs-50336} Result: [5, 水世界®, 66.5, 8:00-22:00, 水世界, 0]
+DEBUG http-nio-8080-exec-5 druid.sql.ResultSet - {conn-10036, pstmt-20138, rs-50336} Result: [6, 侏罗纪世界-激流勇进, 168.0, 8:00-22:00, 侏罗纪世界-激流勇进, 0]
+DEBUG http-nio-8080-exec-5 druid.sql.ResultSet - {conn-10036, pstmt-20138, rs-50336} Result: [7, 环球影城动物演员, 68.0, 8:00-22:00, 环球影城动物演员, 0]
+DEBUG http-nio-8080-exec-5 druid.sql.ResultSet - {conn-10036, pstmt-20138, rs-50336} Result: [8, 鹰马的飞行, 98.0, 8:00-22:00, 鹰马的飞行, 0]
+DEBUG http-nio-8080-exec-5 druid.sql.ResultSet - {conn-10036, pstmt-20138, rs-50336} Result: [9, 梦工厂功夫熊猫, 68.0, 8:00-22:00, 梦工厂功夫熊猫, 0]
+DEBUG http-nio-8080-exec-5 druid.sql.ResultSet - {conn-10036, pstmt-20138, rs-50336} Result: [10, 速度与激情——超动力, 328.0, 8:00-22:00, 速度与激情——超动力, 0]
+DEBUG http-nio-8080-exec-5 druid.sql.ResultSet - {conn-10036, pstmt-20138, rs-50336} closed
+DEBUG http-nio-8080-exec-5 druid.sql.Statement - {conn-10036, pstmt-20138} clearParameters. 
+DEBUG http-nio-8080-exec-5 druid.sql.Connection - {conn-10036} pool-recycle
+DEBUG http-nio-8080-exec-5 druid.sql.Connection - {conn-10036} pool-connect
+DEBUG http-nio-8080-exec-5 druid.sql.Statement - {conn-10036, pstmt-20139} created. SELECT tPrice AS basePrice FROM tbl_ticket,tbl_attractions WHERE tbl_ticket.ticketID=tbl_attractions.ticketID;
+DEBUG http-nio-8080-exec-5 druid.sql.Statement - {conn-10036, pstmt-20139} Parameters : []
+DEBUG http-nio-8080-exec-5 druid.sql.Statement - {conn-10036, pstmt-20139} Types : []
+DEBUG http-nio-8080-exec-5 druid.sql.Statement - {conn-10036, pstmt-20139} executed. 56.7965 millis. SELECT tPrice AS basePrice FROM tbl_ticket,tbl_attractions WHERE tbl_ticket.ticketID=tbl_attractions.ticketID;
+DEBUG http-nio-8080-exec-5 druid.sql.ResultSet - {conn-10036, pstmt-20139, rs-50337} open
+DEBUG http-nio-8080-exec-5 druid.sql.ResultSet - {conn-10036, pstmt-20139, rs-50337} Header: [tPrice]
+DEBUG http-nio-8080-exec-5 druid.sql.ResultSet - {conn-10036, pstmt-20139, rs-50337} Result: [100.0]
+DEBUG http-nio-8080-exec-5 druid.sql.ResultSet - {conn-10036, pstmt-20139, rs-50337} closed
+DEBUG http-nio-8080-exec-5 druid.sql.Statement - {conn-10036, pstmt-20139} clearParameters. 
+DEBUG http-nio-8080-exec-5 druid.sql.Connection - {conn-10036} pool-recycle
+DEBUG http-nio-8080-exec-8 druid.sql.Connection - {conn-10036} pool-connect
+DEBUG http-nio-8080-exec-8 druid.sql.Statement - {conn-10036, pstmt-20140} created. SELECT name FROM tbl_user WHERE userID=?
+DEBUG http-nio-8080-exec-8 druid.sql.Statement - {conn-10036, pstmt-20140} Parameters : [220104200008152219]
+DEBUG http-nio-8080-exec-8 druid.sql.Statement - {conn-10036, pstmt-20140} Types : [VARCHAR]
+DEBUG http-nio-8080-exec-8 druid.sql.Statement - {conn-10036, pstmt-20140} executed. 58.5272 millis. SELECT name FROM tbl_user WHERE userID=?
+DEBUG http-nio-8080-exec-8 druid.sql.ResultSet - {conn-10036, pstmt-20140, rs-50338} open
+DEBUG http-nio-8080-exec-8 druid.sql.ResultSet - {conn-10036, pstmt-20140, rs-50338} Header: [name]
+DEBUG http-nio-8080-exec-8 druid.sql.ResultSet - {conn-10036, pstmt-20140, rs-50338} Result: [徐天航]
+DEBUG http-nio-8080-exec-8 druid.sql.ResultSet - {conn-10036, pstmt-20140, rs-50338} closed
+DEBUG http-nio-8080-exec-8 druid.sql.Statement - {conn-10036, pstmt-20140} clearParameters. 
+DEBUG http-nio-8080-exec-8 druid.sql.Connection - {conn-10036} pool-recycle
+DEBUG http-nio-8080-exec-7 druid.sql.Connection - {conn-10036} pool-connect
+DEBUG http-nio-8080-exec-7 druid.sql.Statement - {conn-10036, pstmt-20140} Parameters : [1]
+DEBUG http-nio-8080-exec-7 druid.sql.Statement - {conn-10036, pstmt-20140} Types : [VARCHAR]
+DEBUG http-nio-8080-exec-7 druid.sql.Statement - {conn-10036, pstmt-20140} executed. 61.1474 millis. SELECT name FROM tbl_user WHERE userID=?
+DEBUG http-nio-8080-exec-7 druid.sql.ResultSet - {conn-10036, pstmt-20140, rs-50339} open
+DEBUG http-nio-8080-exec-7 druid.sql.ResultSet - {conn-10036, pstmt-20140, rs-50339} Header: [name]
+DEBUG http-nio-8080-exec-7 druid.sql.ResultSet - {conn-10036, pstmt-20140, rs-50339} Result: [张三]
+DEBUG http-nio-8080-exec-7 druid.sql.ResultSet - {conn-10036, pstmt-20140, rs-50339} closed
+DEBUG http-nio-8080-exec-7 druid.sql.Statement - {conn-10036, pstmt-20140} clearParameters. 
+DEBUG http-nio-8080-exec-7 druid.sql.Connection - {conn-10036} pool-recycle
+DEBUG http-nio-8080-exec-9 druid.sql.Connection - {conn-10036} pool-connect
+DEBUG http-nio-8080-exec-9 druid.sql.Statement - {conn-10036, pstmt-20140} Parameters : [2]
+DEBUG http-nio-8080-exec-9 druid.sql.Statement - {conn-10036, pstmt-20140} Types : [VARCHAR]
+DEBUG http-nio-8080-exec-9 druid.sql.Statement - {conn-10036, pstmt-20140} executed. 65.4709 millis. SELECT name FROM tbl_user WHERE userID=?
+DEBUG http-nio-8080-exec-9 druid.sql.ResultSet - {conn-10036, pstmt-20140, rs-50340} open
+DEBUG http-nio-8080-exec-9 druid.sql.ResultSet - {conn-10036, pstmt-20140, rs-50340} Header: [name]
+DEBUG http-nio-8080-exec-9 druid.sql.ResultSet - {conn-10036, pstmt-20140, rs-50340} Result: [李四]
+DEBUG http-nio-8080-exec-9 druid.sql.ResultSet - {conn-10036, pstmt-20140, rs-50340} closed
+DEBUG http-nio-8080-exec-9 druid.sql.Statement - {conn-10036, pstmt-20140} clearParameters. 
+DEBUG http-nio-8080-exec-9 druid.sql.Connection - {conn-10036} pool-recycle
+DEBUG http-nio-8080-exec-10 druid.sql.Connection - {conn-10036} pool-connect
+DEBUG http-nio-8080-exec-10 druid.sql.Statement - {conn-10036, pstmt-20140} Parameters : [3]
+DEBUG http-nio-8080-exec-10 druid.sql.Statement - {conn-10036, pstmt-20140} Types : [VARCHAR]
+DEBUG http-nio-8080-exec-10 druid.sql.Statement - {conn-10036, pstmt-20140} executed. 59.8455 millis. SELECT name FROM tbl_user WHERE userID=?
+DEBUG http-nio-8080-exec-10 druid.sql.ResultSet - {conn-10036, pstmt-20140, rs-50341} open
+DEBUG http-nio-8080-exec-10 druid.sql.ResultSet - {conn-10036, pstmt-20140, rs-50341} Header: [name]
+DEBUG http-nio-8080-exec-10 druid.sql.ResultSet - {conn-10036, pstmt-20140, rs-50341} Result: [王五]
+DEBUG http-nio-8080-exec-10 druid.sql.ResultSet - {conn-10036, pstmt-20140, rs-50341} closed
+DEBUG http-nio-8080-exec-10 druid.sql.Statement - {conn-10036, pstmt-20140} clearParameters. 
+DEBUG http-nio-8080-exec-10 druid.sql.Connection - {conn-10036} pool-recycle
+DEBUG http-nio-8080-exec-3 druid.sql.Connection - {conn-10036} pool-connect
+DEBUG http-nio-8080-exec-3 druid.sql.Statement - {conn-10036, pstmt-20141} created. INSERT INTO tbl_trade(tradeID,userID,orderDate,tradeDate,totalPrice,isRefund,tType,numberOfPeople)
+        VALUES (?, ?,?, ?, ?, '0',?,?)
+DEBUG http-nio-8080-exec-3 druid.sql.Statement - {conn-10036, pstmt-20141} Parameters : [16257275643296, 220104200008152219, 2021-07-09, 2021-07-08 14:59:24, 1435.0, group, 4]
+DEBUG http-nio-8080-exec-3 druid.sql.Statement - {conn-10036, pstmt-20141} Types : [BIGINT, VARCHAR, VARCHAR, VARCHAR, DOUBLE, VARCHAR, INTEGER]
+DEBUG http-nio-8080-exec-3 druid.sql.Statement - {conn-10036, pstmt-20141} executed. 123.9007 millis. INSERT INTO tbl_trade(tradeID,userID,orderDate,tradeDate,totalPrice,isRefund,tType,numberOfPeople)
+        VALUES (?, ?,?, ?, ?, '0',?,?)
+DEBUG http-nio-8080-exec-3 druid.sql.Statement - {conn-10036, pstmt-20141} clearParameters. 
+DEBUG http-nio-8080-exec-3 druid.sql.Connection - {conn-10036} pool-recycle
+DEBUG http-nio-8080-exec-3 druid.sql.Connection - {conn-10036} pool-connect
+DEBUG http-nio-8080-exec-3 druid.sql.Statement - {conn-10036, pstmt-20142} created. INSERT INTO tbl_tradeDetail (tradeID,ticketID,userID,tprice)
+        VALUES
+          
+            (?, ?, ?,?)
+         , 
+            (?, ?, ?,?)
+         , 
+            (?, ?, ?,?)
+         , 
+            (?, ?, ?,?)
+         , 
+            (?, ?, ?,?)
+         , 
+            (?, ?, ?,?)
+         , 
+            (?, ?, ?,?)
+         , 
+            (?, ?, ?,?)
+         , 
+            (?, ?, ?,?)
+         , 
+            (?, ?, ?,?)
+         , 
+            (?, ?, ?,?)
+         , 
+            (?, ?, ?,?)
+         , 
+            (?, ?, ?,?)
+         , 
+            (?, ?, ?,?)
+DEBUG http-nio-8080-exec-3 druid.sql.Statement - {conn-10036, pstmt-20142} Parameters : [16257275643296, -1, 220104200008152219, 100.0, 16257275643296, 4, 220104200008152219, 23.5, 16257275643296, 5, 220104200008152219, 66.5, 16257275643296, 6, 220104200008152219, 168.0, 16257275643296, 7, 220104200008152219, 68.0, 16257275643296, -1, 1, 100.0, 16257275643296, -1, 2, 100.0, 16257275643296, 2, 2, 49.0, 16257275643296, 8, 2, 98.0, 16257275643296, -1, 3, 100.0, 16257275643296, 10, 3, 328.0, 16257275643296, 9, 3, 68.0, 16257275643296, 8, 3, 98.0, 16257275643296, 7, 3, 68.0]
+DEBUG http-nio-8080-exec-3 druid.sql.Statement - {conn-10036, pstmt-20142} Types : [BIGINT, INTEGER, VARCHAR, DOUBLE, BIGINT, INTEGER, VARCHAR, DOUBLE, BIGINT, INTEGER, VARCHAR, DOUBLE, BIGINT, INTEGER, VARCHAR, DOUBLE, BIGINT, INTEGER, VARCHAR, DOUBLE, BIGINT, INTEGER, VARCHAR, DOUBLE, BIGINT, INTEGER, VARCHAR, DOUBLE, BIGINT, INTEGER, VARCHAR, DOUBLE, BIGINT, INTEGER, VARCHAR, DOUBLE, BIGINT, INTEGER, VARCHAR, DOUBLE, BIGINT, INTEGER, VARCHAR, DOUBLE, BIGINT, INTEGER, VARCHAR, DOUBLE, BIGINT, INTEGER, VARCHAR, DOUBLE, BIGINT, INTEGER, VARCHAR, DOUBLE]
+DEBUG http-nio-8080-exec-3 druid.sql.Statement - {conn-10036, pstmt-20142} executed. 119.2772 millis. INSERT INTO tbl_tradeDetail (tradeID,ticketID,userID,tprice)
+        VALUES
+          
+            (?, ?, ?,?)
+         , 
+            (?, ?, ?,?)
+         , 
+            (?, ?, ?,?)
+         , 
+            (?, ?, ?,?)
+         , 
+            (?, ?, ?,?)
+         , 
+            (?, ?, ?,?)
+         , 
+            (?, ?, ?,?)
+         , 
+            (?, ?, ?,?)
+         , 
+            (?, ?, ?,?)
+         , 
+            (?, ?, ?,?)
+         , 
+            (?, ?, ?,?)
+         , 
+            (?, ?, ?,?)
+         , 
+            (?, ?, ?,?)
+         , 
+            (?, ?, ?,?)
+DEBUG http-nio-8080-exec-3 druid.sql.Statement - {conn-10036, pstmt-20142} clearParameters. 
+DEBUG http-nio-8080-exec-3 druid.sql.Connection - {conn-10036} pool-recycle
+DEBUG http-nio-8080-exec-6 druid.sql.Connection - {conn-10036} closed
+DEBUG http-nio-8080-exec-6 druid.sql.Connection - {conn-10035} closed
+DEBUG Druid-ConnectionPool-Create-6444791 druid.sql.Connection - {conn-10037,procId-1603922} connected
+DEBUG http-nio-8080-exec-6 druid.sql.Connection - {conn-10037} pool-connect
+DEBUG http-nio-8080-exec-6 druid.sql.Statement - {conn-10037, pstmt-20143} created. SELECT aName,remain FROM tbl_attractions,tbl_ticketremain WHERE dateTime=?;
+DEBUG http-nio-8080-exec-6 druid.sql.Statement - {conn-10037, pstmt-20143} Parameters : [2021-07-08]
+DEBUG http-nio-8080-exec-6 druid.sql.Statement - {conn-10037, pstmt-20143} Types : [VARCHAR]
+DEBUG http-nio-8080-exec-6 druid.sql.Statement - {conn-10037, pstmt-20143} executed. 61.8429 millis. SELECT aName,remain FROM tbl_attractions,tbl_ticketremain WHERE dateTime=?;
+DEBUG http-nio-8080-exec-6 druid.sql.ResultSet - {conn-10037, pstmt-20143, rs-50342} open
+DEBUG http-nio-8080-exec-6 druid.sql.ResultSet - {conn-10037, pstmt-20143, rs-50342} Header: [aName, remain]
+DEBUG http-nio-8080-exec-6 druid.sql.ResultSet - {conn-10037, pstmt-20143, rs-50342} Result: [好莱坞环球影城™, 3000]
+DEBUG http-nio-8080-exec-6 druid.sql.ResultSet - {conn-10037, pstmt-20143, rs-50342} closed
+DEBUG http-nio-8080-exec-6 druid.sql.Statement - {conn-10037, pstmt-20143} clearParameters. 
+DEBUG http-nio-8080-exec-6 druid.sql.Connection - {conn-10037} pool-recycle
+DEBUG http-nio-8080-exec-6 druid.sql.Connection - {conn-10037} pool-connect
+DEBUG http-nio-8080-exec-6 druid.sql.Statement - {conn-10037, pstmt-20144} created. SELECT * FROM `Attractions`.`view_overview` ORDER BY scenicareaID;
+DEBUG http-nio-8080-exec-6 druid.sql.Statement - {conn-10037, pstmt-20144} Parameters : []
+DEBUG http-nio-8080-exec-6 druid.sql.Statement - {conn-10037, pstmt-20144} Types : []
+DEBUG http-nio-8080-exec-6 druid.sql.Statement - {conn-10037, pstmt-20144} executed. 62.6642 millis. SELECT * FROM `Attractions`.`view_overview` ORDER BY scenicareaID;
+DEBUG http-nio-8080-exec-6 druid.sql.ResultSet - {conn-10037, pstmt-20144, rs-50343} open
+DEBUG http-nio-8080-exec-6 druid.sql.ResultSet - {conn-10037, pstmt-20144, rs-50343} Header: [scenicareaID, sName, tprice, sOpenTime, sAddress, numberSold]
+DEBUG http-nio-8080-exec-6 druid.sql.ResultSet - {conn-10037, pstmt-20144, rs-50343} Result: [1, 波特禁忌之旅™, 100.0, 8:00-22:00, 哈利波特的魔法世界™, 0]
+DEBUG http-nio-8080-exec-6 druid.sql.ResultSet - {conn-10037, pstmt-20144, rs-50343} Result: [2, 霍格沃茨™城堡黑魔法之夜, 49.0, 8:00-22:00, 哈利波特的魔法世界™, 0]
+DEBUG http-nio-8080-exec-6 druid.sql.ResultSet - {conn-10037, pstmt-20144, rs-50343} Result: [3, 金刚360度3D历险, 0.0, 8:00-22:00, 金刚称霸, 0]
+DEBUG http-nio-8080-exec-6 druid.sql.ResultSet - {conn-10037, pstmt-20144, rs-50343} Result: [4, 淘气旋转过山车, 23.5, 8:00-22:00, 淘气旋转过山车, 0]
+DEBUG http-nio-8080-exec-6 druid.sql.ResultSet - {conn-10037, pstmt-20144, rs-50343} Result: [5, 水世界®, 66.5, 8:00-22:00, 水世界, 0]
+DEBUG http-nio-8080-exec-6 druid.sql.ResultSet - {conn-10037, pstmt-20144, rs-50343} Result: [6, 侏罗纪世界-激流勇进, 168.0, 8:00-22:00, 侏罗纪世界-激流勇进, 0]
+DEBUG http-nio-8080-exec-6 druid.sql.ResultSet - {conn-10037, pstmt-20144, rs-50343} Result: [7, 环球影城动物演员, 68.0, 8:00-22:00, 环球影城动物演员, 0]
+DEBUG http-nio-8080-exec-6 druid.sql.ResultSet - {conn-10037, pstmt-20144, rs-50343} Result: [8, 鹰马的飞行, 98.0, 8:00-22:00, 鹰马的飞行, 0]
+DEBUG http-nio-8080-exec-6 druid.sql.ResultSet - {conn-10037, pstmt-20144, rs-50343} Result: [9, 梦工厂功夫熊猫, 68.0, 8:00-22:00, 梦工厂功夫熊猫, 0]
+DEBUG http-nio-8080-exec-6 druid.sql.ResultSet - {conn-10037, pstmt-20144, rs-50343} Result: [10, 速度与激情——超动力, 328.0, 8:00-22:00, 速度与激情——超动力, 0]
+DEBUG http-nio-8080-exec-6 druid.sql.ResultSet - {conn-10037, pstmt-20144, rs-50343} closed
+DEBUG http-nio-8080-exec-6 druid.sql.Statement - {conn-10037, pstmt-20144} clearParameters. 
+DEBUG http-nio-8080-exec-6 druid.sql.Connection - {conn-10037} pool-recycle
+DEBUG http-nio-8080-exec-5 druid.sql.Connection - {conn-10037} pool-connect
+DEBUG http-nio-8080-exec-5 druid.sql.Statement - {conn-10037, pstmt-20144} Parameters : []
+DEBUG http-nio-8080-exec-5 druid.sql.Statement - {conn-10037, pstmt-20144} Types : []
+DEBUG http-nio-8080-exec-5 druid.sql.Statement - {conn-10037, pstmt-20144} executed. 68.9153 millis. SELECT * FROM `Attractions`.`view_overview` ORDER BY scenicareaID;
+DEBUG http-nio-8080-exec-5 druid.sql.ResultSet - {conn-10037, pstmt-20144, rs-50344} open
+DEBUG http-nio-8080-exec-5 druid.sql.ResultSet - {conn-10037, pstmt-20144, rs-50344} Header: [scenicareaID, sName, tprice, sOpenTime, sAddress, numberSold]
+DEBUG http-nio-8080-exec-5 druid.sql.ResultSet - {conn-10037, pstmt-20144, rs-50344} Result: [1, 波特禁忌之旅™, 100.0, 8:00-22:00, 哈利波特的魔法世界™, 0]
+DEBUG http-nio-8080-exec-5 druid.sql.ResultSet - {conn-10037, pstmt-20144, rs-50344} Result: [2, 霍格沃茨™城堡黑魔法之夜, 49.0, 8:00-22:00, 哈利波特的魔法世界™, 0]
+DEBUG http-nio-8080-exec-5 druid.sql.ResultSet - {conn-10037, pstmt-20144, rs-50344} Result: [3, 金刚360度3D历险, 0.0, 8:00-22:00, 金刚称霸, 0]
+DEBUG http-nio-8080-exec-5 druid.sql.ResultSet - {conn-10037, pstmt-20144, rs-50344} Result: [4, 淘气旋转过山车, 23.5, 8:00-22:00, 淘气旋转过山车, 0]
+DEBUG http-nio-8080-exec-5 druid.sql.ResultSet - {conn-10037, pstmt-20144, rs-50344} Result: [5, 水世界®, 66.5, 8:00-22:00, 水世界, 0]
+DEBUG http-nio-8080-exec-5 druid.sql.ResultSet - {conn-10037, pstmt-20144, rs-50344} Result: [6, 侏罗纪世界-激流勇进, 168.0, 8:00-22:00, 侏罗纪世界-激流勇进, 0]
+DEBUG http-nio-8080-exec-5 druid.sql.ResultSet - {conn-10037, pstmt-20144, rs-50344} Result: [7, 环球影城动物演员, 68.0, 8:00-22:00, 环球影城动物演员, 0]
+DEBUG http-nio-8080-exec-5 druid.sql.ResultSet - {conn-10037, pstmt-20144, rs-50344} Result: [8, 鹰马的飞行, 98.0, 8:00-22:00, 鹰马的飞行, 0]
+DEBUG http-nio-8080-exec-5 druid.sql.ResultSet - {conn-10037, pstmt-20144, rs-50344} Result: [9, 梦工厂功夫熊猫, 68.0, 8:00-22:00, 梦工厂功夫熊猫, 0]
+DEBUG http-nio-8080-exec-5 druid.sql.ResultSet - {conn-10037, pstmt-20144, rs-50344} Result: [10, 速度与激情——超动力, 328.0, 8:00-22:00, 速度与激情——超动力, 0]
+DEBUG http-nio-8080-exec-5 druid.sql.ResultSet - {conn-10037, pstmt-20144, rs-50344} closed
+DEBUG http-nio-8080-exec-5 druid.sql.Statement - {conn-10037, pstmt-20144} clearParameters. 
+DEBUG http-nio-8080-exec-5 druid.sql.Connection - {conn-10037} pool-recycle
+DEBUG http-nio-8080-exec-5 druid.sql.Connection - {conn-10037} pool-connect
+DEBUG http-nio-8080-exec-5 druid.sql.Statement - {conn-10037, pstmt-20145} created. SELECT tPrice AS basePrice FROM tbl_ticket,tbl_attractions WHERE tbl_ticket.ticketID=tbl_attractions.ticketID;
+DEBUG http-nio-8080-exec-5 druid.sql.Statement - {conn-10037, pstmt-20145} Parameters : []
+DEBUG http-nio-8080-exec-5 druid.sql.Statement - {conn-10037, pstmt-20145} Types : []
+DEBUG http-nio-8080-exec-5 druid.sql.Statement - {conn-10037, pstmt-20145} executed. 62.6922 millis. SELECT tPrice AS basePrice FROM tbl_ticket,tbl_attractions WHERE tbl_ticket.ticketID=tbl_attractions.ticketID;
+DEBUG http-nio-8080-exec-5 druid.sql.ResultSet - {conn-10037, pstmt-20145, rs-50345} open
+DEBUG http-nio-8080-exec-5 druid.sql.ResultSet - {conn-10037, pstmt-20145, rs-50345} Header: [tPrice]
+DEBUG http-nio-8080-exec-5 druid.sql.ResultSet - {conn-10037, pstmt-20145, rs-50345} Result: [100.0]
+DEBUG http-nio-8080-exec-5 druid.sql.ResultSet - {conn-10037, pstmt-20145, rs-50345} closed
+DEBUG http-nio-8080-exec-5 druid.sql.Statement - {conn-10037, pstmt-20145} clearParameters. 
+DEBUG http-nio-8080-exec-5 druid.sql.Connection - {conn-10037} pool-recycle
+DEBUG http-nio-8080-exec-7 druid.sql.Connection - {conn-10037} closed
+DEBUG Druid-ConnectionPool-Create-6444791 druid.sql.Connection - {conn-10038,procId-1603934} connected
+DEBUG http-nio-8080-exec-7 druid.sql.Connection - {conn-10038} pool-connect
+DEBUG http-nio-8080-exec-7 druid.sql.Statement - {conn-10038, pstmt-20146} created. SELECT aName,remain FROM tbl_attractions,tbl_ticketremain WHERE dateTime=?;
+DEBUG http-nio-8080-exec-7 druid.sql.Statement - {conn-10038, pstmt-20146} Parameters : [2021-07-08]
+DEBUG http-nio-8080-exec-7 druid.sql.Statement - {conn-10038, pstmt-20146} Types : [VARCHAR]
+DEBUG http-nio-8080-exec-7 druid.sql.Statement - {conn-10038, pstmt-20146} executed. 107.4834 millis. SELECT aName,remain FROM tbl_attractions,tbl_ticketremain WHERE dateTime=?;
+DEBUG http-nio-8080-exec-7 druid.sql.ResultSet - {conn-10038, pstmt-20146, rs-50346} open
+DEBUG http-nio-8080-exec-7 druid.sql.ResultSet - {conn-10038, pstmt-20146, rs-50346} Header: [aName, remain]
+DEBUG http-nio-8080-exec-7 druid.sql.ResultSet - {conn-10038, pstmt-20146, rs-50346} Result: [好莱坞环球影城™, 3000]
+DEBUG http-nio-8080-exec-7 druid.sql.ResultSet - {conn-10038, pstmt-20146, rs-50346} closed
+DEBUG http-nio-8080-exec-7 druid.sql.Statement - {conn-10038, pstmt-20146} clearParameters. 
+DEBUG http-nio-8080-exec-7 druid.sql.Connection - {conn-10038} pool-recycle
+DEBUG http-nio-8080-exec-7 druid.sql.Connection - {conn-10038} pool-connect
+DEBUG http-nio-8080-exec-7 druid.sql.Statement - {conn-10038, pstmt-20147} created. SELECT * FROM `Attractions`.`view_overview` ORDER BY scenicareaID;
+DEBUG http-nio-8080-exec-7 druid.sql.Statement - {conn-10038, pstmt-20147} Parameters : []
+DEBUG http-nio-8080-exec-7 druid.sql.Statement - {conn-10038, pstmt-20147} Types : []
+DEBUG http-nio-8080-exec-7 druid.sql.Statement - {conn-10038, pstmt-20147} executed. 111.6756 millis. SELECT * FROM `Attractions`.`view_overview` ORDER BY scenicareaID;
+DEBUG http-nio-8080-exec-7 druid.sql.ResultSet - {conn-10038, pstmt-20147, rs-50347} open
+DEBUG http-nio-8080-exec-7 druid.sql.ResultSet - {conn-10038, pstmt-20147, rs-50347} Header: [scenicareaID, sName, tprice, sOpenTime, sAddress, numberSold]
+DEBUG http-nio-8080-exec-7 druid.sql.ResultSet - {conn-10038, pstmt-20147, rs-50347} Result: [1, 波特禁忌之旅™, 100.0, 8:00-22:00, 哈利波特的魔法世界™, 0]
+DEBUG http-nio-8080-exec-7 druid.sql.ResultSet - {conn-10038, pstmt-20147, rs-50347} Result: [2, 霍格沃茨™城堡黑魔法之夜, 49.0, 8:00-22:00, 哈利波特的魔法世界™, 0]
+DEBUG http-nio-8080-exec-7 druid.sql.ResultSet - {conn-10038, pstmt-20147, rs-50347} Result: [3, 金刚360度3D历险, 0.0, 8:00-22:00, 金刚称霸, 0]
+DEBUG http-nio-8080-exec-7 druid.sql.ResultSet - {conn-10038, pstmt-20147, rs-50347} Result: [4, 淘气旋转过山车, 23.5, 8:00-22:00, 淘气旋转过山车, 0]
+DEBUG http-nio-8080-exec-7 druid.sql.ResultSet - {conn-10038, pstmt-20147, rs-50347} Result: [5, 水世界®, 66.5, 8:00-22:00, 水世界, 0]
+DEBUG http-nio-8080-exec-7 druid.sql.ResultSet - {conn-10038, pstmt-20147, rs-50347} Result: [6, 侏罗纪世界-激流勇进, 168.0, 8:00-22:00, 侏罗纪世界-激流勇进, 0]
+DEBUG http-nio-8080-exec-7 druid.sql.ResultSet - {conn-10038, pstmt-20147, rs-50347} Result: [7, 环球影城动物演员, 68.0, 8:00-22:00, 环球影城动物演员, 0]
+DEBUG http-nio-8080-exec-7 druid.sql.ResultSet - {conn-10038, pstmt-20147, rs-50347} Result: [8, 鹰马的飞行, 98.0, 8:00-22:00, 鹰马的飞行, 0]
+DEBUG http-nio-8080-exec-7 druid.sql.ResultSet - {conn-10038, pstmt-20147, rs-50347} Result: [9, 梦工厂功夫熊猫, 68.0, 8:00-22:00, 梦工厂功夫熊猫, 0]
+DEBUG http-nio-8080-exec-7 druid.sql.ResultSet - {conn-10038, pstmt-20147, rs-50347} Result: [10, 速度与激情——超动力, 328.0, 8:00-22:00, 速度与激情——超动力, 0]
+DEBUG http-nio-8080-exec-7 druid.sql.ResultSet - {conn-10038, pstmt-20147, rs-50347} closed
+DEBUG http-nio-8080-exec-7 druid.sql.Statement - {conn-10038, pstmt-20147} clearParameters. 
+DEBUG http-nio-8080-exec-7 druid.sql.Connection - {conn-10038} pool-recycle
+DEBUG http-nio-8080-exec-9 druid.sql.Connection - {conn-10038} pool-connect
+DEBUG http-nio-8080-exec-9 druid.sql.Statement - {conn-10038, pstmt-20147} Parameters : []
+DEBUG http-nio-8080-exec-9 druid.sql.Statement - {conn-10038, pstmt-20147} Types : []
+DEBUG http-nio-8080-exec-9 druid.sql.Statement - {conn-10038, pstmt-20147} executed. 115.9906 millis. SELECT * FROM `Attractions`.`view_overview` ORDER BY scenicareaID;
+DEBUG http-nio-8080-exec-9 druid.sql.ResultSet - {conn-10038, pstmt-20147, rs-50348} open
+DEBUG http-nio-8080-exec-9 druid.sql.ResultSet - {conn-10038, pstmt-20147, rs-50348} Header: [scenicareaID, sName, tprice, sOpenTime, sAddress, numberSold]
+DEBUG http-nio-8080-exec-9 druid.sql.ResultSet - {conn-10038, pstmt-20147, rs-50348} Result: [1, 波特禁忌之旅™, 100.0, 8:00-22:00, 哈利波特的魔法世界™, 0]
+DEBUG http-nio-8080-exec-9 druid.sql.ResultSet - {conn-10038, pstmt-20147, rs-50348} Result: [2, 霍格沃茨™城堡黑魔法之夜, 49.0, 8:00-22:00, 哈利波特的魔法世界™, 0]
+DEBUG http-nio-8080-exec-9 druid.sql.ResultSet - {conn-10038, pstmt-20147, rs-50348} Result: [3, 金刚360度3D历险, 0.0, 8:00-22:00, 金刚称霸, 0]
+DEBUG http-nio-8080-exec-9 druid.sql.ResultSet - {conn-10038, pstmt-20147, rs-50348} Result: [4, 淘气旋转过山车, 23.5, 8:00-22:00, 淘气旋转过山车, 0]
+DEBUG http-nio-8080-exec-9 druid.sql.ResultSet - {conn-10038, pstmt-20147, rs-50348} Result: [5, 水世界®, 66.5, 8:00-22:00, 水世界, 0]
+DEBUG http-nio-8080-exec-9 druid.sql.ResultSet - {conn-10038, pstmt-20147, rs-50348} Result: [6, 侏罗纪世界-激流勇进, 168.0, 8:00-22:00, 侏罗纪世界-激流勇进, 0]
+DEBUG http-nio-8080-exec-9 druid.sql.ResultSet - {conn-10038, pstmt-20147, rs-50348} Result: [7, 环球影城动物演员, 68.0, 8:00-22:00, 环球影城动物演员, 0]
+DEBUG http-nio-8080-exec-9 druid.sql.ResultSet - {conn-10038, pstmt-20147, rs-50348} Result: [8, 鹰马的飞行, 98.0, 8:00-22:00, 鹰马的飞行, 0]
+DEBUG http-nio-8080-exec-9 druid.sql.ResultSet - {conn-10038, pstmt-20147, rs-50348} Result: [9, 梦工厂功夫熊猫, 68.0, 8:00-22:00, 梦工厂功夫熊猫, 0]
+DEBUG http-nio-8080-exec-9 druid.sql.ResultSet - {conn-10038, pstmt-20147, rs-50348} Result: [10, 速度与激情——超动力, 328.0, 8:00-22:00, 速度与激情——超动力, 0]
+DEBUG http-nio-8080-exec-9 druid.sql.ResultSet - {conn-10038, pstmt-20147, rs-50348} closed
+DEBUG http-nio-8080-exec-9 druid.sql.Statement - {conn-10038, pstmt-20147} clearParameters. 
+DEBUG http-nio-8080-exec-9 druid.sql.Connection - {conn-10038} pool-recycle
+DEBUG http-nio-8080-exec-9 druid.sql.Connection - {conn-10038} pool-connect
+DEBUG http-nio-8080-exec-9 druid.sql.Statement - {conn-10038, pstmt-20148} created. SELECT tPrice AS basePrice FROM tbl_ticket,tbl_attractions WHERE tbl_ticket.ticketID=tbl_attractions.ticketID;
+DEBUG http-nio-8080-exec-9 druid.sql.Statement - {conn-10038, pstmt-20148} Parameters : []
+DEBUG http-nio-8080-exec-9 druid.sql.Statement - {conn-10038, pstmt-20148} Types : []
+DEBUG http-nio-8080-exec-9 druid.sql.Statement - {conn-10038, pstmt-20148} executed. 105.7591 millis. SELECT tPrice AS basePrice FROM tbl_ticket,tbl_attractions WHERE tbl_ticket.ticketID=tbl_attractions.ticketID;
+DEBUG http-nio-8080-exec-9 druid.sql.ResultSet - {conn-10038, pstmt-20148, rs-50349} open
+DEBUG http-nio-8080-exec-9 druid.sql.ResultSet - {conn-10038, pstmt-20148, rs-50349} Header: [tPrice]
+DEBUG http-nio-8080-exec-9 druid.sql.ResultSet - {conn-10038, pstmt-20148, rs-50349} Result: [100.0]
+DEBUG http-nio-8080-exec-9 druid.sql.ResultSet - {conn-10038, pstmt-20148, rs-50349} closed
+DEBUG http-nio-8080-exec-9 druid.sql.Statement - {conn-10038, pstmt-20148} clearParameters. 
+DEBUG http-nio-8080-exec-9 druid.sql.Connection - {conn-10038} pool-recycle
+DEBUG http-nio-8080-exec-10 druid.sql.Connection - {conn-10038} pool-connect
+DEBUG http-nio-8080-exec-10 druid.sql.Statement - {conn-10038, pstmt-20149} created. SELECT name FROM tbl_user WHERE userID=?
+DEBUG http-nio-8080-exec-10 druid.sql.Statement - {conn-10038, pstmt-20149} Parameters : [1]
+DEBUG http-nio-8080-exec-10 druid.sql.Statement - {conn-10038, pstmt-20149} Types : [VARCHAR]
+DEBUG http-nio-8080-exec-10 druid.sql.Statement - {conn-10038, pstmt-20149} executed. 108.5695 millis. SELECT name FROM tbl_user WHERE userID=?
+DEBUG http-nio-8080-exec-10 druid.sql.ResultSet - {conn-10038, pstmt-20149, rs-50350} open
+DEBUG http-nio-8080-exec-10 druid.sql.ResultSet - {conn-10038, pstmt-20149, rs-50350} Header: [name]
+DEBUG http-nio-8080-exec-10 druid.sql.ResultSet - {conn-10038, pstmt-20149, rs-50350} Result: [张三]
+DEBUG http-nio-8080-exec-10 druid.sql.ResultSet - {conn-10038, pstmt-20149, rs-50350} closed
+DEBUG http-nio-8080-exec-10 druid.sql.Statement - {conn-10038, pstmt-20149} clearParameters. 
+DEBUG http-nio-8080-exec-10 druid.sql.Connection - {conn-10038} pool-recycle
+DEBUG http-nio-8080-exec-1 druid.sql.Connection - {conn-10038} pool-connect
+DEBUG http-nio-8080-exec-1 druid.sql.Statement - {conn-10038, pstmt-20149} Parameters : [2]
+DEBUG http-nio-8080-exec-1 druid.sql.Statement - {conn-10038, pstmt-20149} Types : [VARCHAR]
+DEBUG http-nio-8080-exec-1 druid.sql.Statement - {conn-10038, pstmt-20149} executed. 110.8637 millis. SELECT name FROM tbl_user WHERE userID=?
+DEBUG http-nio-8080-exec-1 druid.sql.ResultSet - {conn-10038, pstmt-20149, rs-50351} open
+DEBUG http-nio-8080-exec-1 druid.sql.ResultSet - {conn-10038, pstmt-20149, rs-50351} Header: [name]
+DEBUG http-nio-8080-exec-1 druid.sql.ResultSet - {conn-10038, pstmt-20149, rs-50351} Result: [李四]
+DEBUG http-nio-8080-exec-1 druid.sql.ResultSet - {conn-10038, pstmt-20149, rs-50351} closed
+DEBUG http-nio-8080-exec-1 druid.sql.Statement - {conn-10038, pstmt-20149} clearParameters. 
+DEBUG http-nio-8080-exec-1 druid.sql.Connection - {conn-10038} pool-recycle
+DEBUG http-nio-8080-exec-2 druid.sql.Connection - {conn-10038} pool-connect
+DEBUG http-nio-8080-exec-2 druid.sql.Statement - {conn-10038, pstmt-20149} Parameters : [3]
+DEBUG http-nio-8080-exec-2 druid.sql.Statement - {conn-10038, pstmt-20149} Types : [VARCHAR]
+DEBUG http-nio-8080-exec-2 druid.sql.Statement - {conn-10038, pstmt-20149} executed. 104.9409 millis. SELECT name FROM tbl_user WHERE userID=?
+DEBUG http-nio-8080-exec-2 druid.sql.ResultSet - {conn-10038, pstmt-20149, rs-50352} open
+DEBUG http-nio-8080-exec-2 druid.sql.ResultSet - {conn-10038, pstmt-20149, rs-50352} Header: [name]
+DEBUG http-nio-8080-exec-2 druid.sql.ResultSet - {conn-10038, pstmt-20149, rs-50352} Result: [王五]
+DEBUG http-nio-8080-exec-2 druid.sql.ResultSet - {conn-10038, pstmt-20149, rs-50352} closed
+DEBUG http-nio-8080-exec-2 druid.sql.Statement - {conn-10038, pstmt-20149} clearParameters. 
+DEBUG http-nio-8080-exec-2 druid.sql.Connection - {conn-10038} pool-recycle
+DEBUG http-nio-8080-exec-3 druid.sql.Connection - {conn-10038} pool-connect
+DEBUG http-nio-8080-exec-3 druid.sql.Statement - {conn-10038, pstmt-20149} Parameters : [4]
+DEBUG http-nio-8080-exec-3 druid.sql.Statement - {conn-10038, pstmt-20149} Types : [VARCHAR]
+DEBUG http-nio-8080-exec-3 druid.sql.Statement - {conn-10038, pstmt-20149} executed. 108.2006 millis. SELECT name FROM tbl_user WHERE userID=?
+DEBUG http-nio-8080-exec-3 druid.sql.ResultSet - {conn-10038, pstmt-20149, rs-50353} open
+DEBUG http-nio-8080-exec-3 druid.sql.ResultSet - {conn-10038, pstmt-20149, rs-50353} Header: [name]
+DEBUG http-nio-8080-exec-3 druid.sql.ResultSet - {conn-10038, pstmt-20149, rs-50353} Result: [赵六]
+DEBUG http-nio-8080-exec-3 druid.sql.ResultSet - {conn-10038, pstmt-20149, rs-50353} closed
+DEBUG http-nio-8080-exec-3 druid.sql.Statement - {conn-10038, pstmt-20149} clearParameters. 
+DEBUG http-nio-8080-exec-3 druid.sql.Connection - {conn-10038} pool-recycle
+DEBUG http-nio-8080-exec-4 druid.sql.Connection - {conn-10038} pool-connect
+DEBUG http-nio-8080-exec-4 druid.sql.Statement - {conn-10038, pstmt-20149} Parameters : [10]
+DEBUG http-nio-8080-exec-4 druid.sql.Statement - {conn-10038, pstmt-20149} Types : [VARCHAR]
+DEBUG http-nio-8080-exec-4 druid.sql.Statement - {conn-10038, pstmt-20149} executed. 111.7573 millis. SELECT name FROM tbl_user WHERE userID=?
+DEBUG http-nio-8080-exec-4 druid.sql.ResultSet - {conn-10038, pstmt-20149, rs-50354} open
+DEBUG http-nio-8080-exec-4 druid.sql.ResultSet - {conn-10038, pstmt-20149, rs-50354} Header: [name]
+DEBUG http-nio-8080-exec-4 druid.sql.ResultSet - {conn-10038, pstmt-20149, rs-50354} Result: [王大锤]
+DEBUG http-nio-8080-exec-4 druid.sql.ResultSet - {conn-10038, pstmt-20149, rs-50354} closed
+DEBUG http-nio-8080-exec-4 druid.sql.Statement - {conn-10038, pstmt-20149} clearParameters. 
+DEBUG http-nio-8080-exec-4 druid.sql.Connection - {conn-10038} pool-recycle
+DEBUG http-nio-8080-exec-5 druid.sql.Connection - {conn-10038} pool-connect
+DEBUG http-nio-8080-exec-5 druid.sql.Statement - {conn-10038, pstmt-20150} created. INSERT INTO tbl_trade(tradeID,userID,orderDate,tradeDate,totalPrice,isRefund,tType,numberOfPeople)
+        VALUES (?, ?,?, ?, ?, '0',?,?)
+DEBUG http-nio-8080-exec-5 druid.sql.Statement - {conn-10038, pstmt-20150} Parameters : [16257305630111, 1, 2021-07-08, 2021-07-08 15:49:23, 1110.6, group, 5]
+DEBUG http-nio-8080-exec-5 druid.sql.Statement - {conn-10038, pstmt-20150} Types : [BIGINT, VARCHAR, VARCHAR, VARCHAR, DOUBLE, VARCHAR, INTEGER]
+DEBUG http-nio-8080-exec-5 druid.sql.Statement - {conn-10038, pstmt-20150} executed. 223.1628 millis. INSERT INTO tbl_trade(tradeID,userID,orderDate,tradeDate,totalPrice,isRefund,tType,numberOfPeople)
+        VALUES (?, ?,?, ?, ?, '0',?,?)
+DEBUG http-nio-8080-exec-5 druid.sql.Statement - {conn-10038, pstmt-20150} clearParameters. 
+DEBUG http-nio-8080-exec-5 druid.sql.Connection - {conn-10038} pool-recycle
+DEBUG http-nio-8080-exec-5 druid.sql.Connection - {conn-10038} pool-connect
+DEBUG http-nio-8080-exec-5 druid.sql.Statement - {conn-10038, pstmt-20151} created. INSERT INTO tbl_tradeDetail (tradeID,ticketID,userID,tprice)
+        VALUES
+          
+            (?, ?, ?,?)
+         , 
+            (?, ?, ?,?)
+         , 
+            (?, ?, ?,?)
+         , 
+            (?, ?, ?,?)
+         , 
+            (?, ?, ?,?)
+         , 
+            (?, ?, ?,?)
+         , 
+            (?, ?, ?,?)
+         , 
+            (?, ?, ?,?)
+         , 
+            (?, ?, ?,?)
+         , 
+            (?, ?, ?,?)
+         , 
+            (?, ?, ?,?)
+         , 
+            (?, ?, ?,?)
+         , 
+            (?, ?, ?,?)
+         , 
+            (?, ?, ?,?)
+DEBUG http-nio-8080-exec-5 druid.sql.Statement - {conn-10038, pstmt-20151} Parameters : [16257305630111, -1, 1, 100.0, 16257305630111, 2, 1, 49.0, 16257305630111, 4, 1, 23.5, 16257305630111, 9, 1, 68.0, 16257305630111, 8, 1, 98.0, 16257305630111, -1, 2, 100.0, 16257305630111, -1, 3, 100.0, 16257305630111, 4, 3, 23.5, 16257305630111, 6, 3, 168.0, 16257305630111, 7, 3, 68.0, 16257305630111, -1, 4, 100.0, 16257305630111, -1, 10, 100.0, 16257305630111, 6, 10, 168.0, 16257305630111, 7, 10, 68.0]
+DEBUG http-nio-8080-exec-5 druid.sql.Statement - {conn-10038, pstmt-20151} Types : [BIGINT, INTEGER, VARCHAR, DOUBLE, BIGINT, INTEGER, VARCHAR, DOUBLE, BIGINT, INTEGER, VARCHAR, DOUBLE, BIGINT, INTEGER, VARCHAR, DOUBLE, BIGINT, INTEGER, VARCHAR, DOUBLE, BIGINT, INTEGER, VARCHAR, DOUBLE, BIGINT, INTEGER, VARCHAR, DOUBLE, BIGINT, INTEGER, VARCHAR, DOUBLE, BIGINT, INTEGER, VARCHAR, DOUBLE, BIGINT, INTEGER, VARCHAR, DOUBLE, BIGINT, INTEGER, VARCHAR, DOUBLE, BIGINT, INTEGER, VARCHAR, DOUBLE, BIGINT, INTEGER, VARCHAR, DOUBLE, BIGINT, INTEGER, VARCHAR, DOUBLE]
+DEBUG http-nio-8080-exec-5 druid.sql.Statement - {conn-10038, pstmt-20151} executed. 217.8486 millis. INSERT INTO tbl_tradeDetail (tradeID,ticketID,userID,tprice)
+        VALUES
+          
+            (?, ?, ?,?)
+         , 
+            (?, ?, ?,?)
+         , 
+            (?, ?, ?,?)
+         , 
+            (?, ?, ?,?)
+         , 
+            (?, ?, ?,?)
+         , 
+            (?, ?, ?,?)
+         , 
+            (?, ?, ?,?)
+         , 
+            (?, ?, ?,?)
+         , 
+            (?, ?, ?,?)
+         , 
+            (?, ?, ?,?)
+         , 
+            (?, ?, ?,?)
+         , 
+            (?, ?, ?,?)
+         , 
+            (?, ?, ?,?)
+         , 
+            (?, ?, ?,?)
+DEBUG http-nio-8080-exec-5 druid.sql.Statement - {conn-10038, pstmt-20151} clearParameters. 
+DEBUG http-nio-8080-exec-5 druid.sql.Connection - {conn-10038} pool-recycle
+DEBUG http-nio-8080-exec-8 druid.sql.Connection - {conn-10038} pool-connect
+DEBUG http-nio-8080-exec-8 druid.sql.Statement - {conn-10038, pstmt-20146} Parameters : [2021-07-08]
+DEBUG http-nio-8080-exec-8 druid.sql.Statement - {conn-10038, pstmt-20146} Types : [VARCHAR]
+DEBUG http-nio-8080-exec-8 druid.sql.Statement - {conn-10038, pstmt-20146} executed. 103.2263 millis. SELECT aName,remain FROM tbl_attractions,tbl_ticketremain WHERE dateTime=?;
+DEBUG http-nio-8080-exec-8 druid.sql.ResultSet - {conn-10038, pstmt-20146, rs-50355} open
+DEBUG http-nio-8080-exec-8 druid.sql.ResultSet - {conn-10038, pstmt-20146, rs-50355} Header: [aName, remain]
+DEBUG http-nio-8080-exec-8 druid.sql.ResultSet - {conn-10038, pstmt-20146, rs-50355} Result: [好莱坞环球影城™, 2995]
+DEBUG http-nio-8080-exec-8 druid.sql.ResultSet - {conn-10038, pstmt-20146, rs-50355} closed
+DEBUG http-nio-8080-exec-8 druid.sql.Statement - {conn-10038, pstmt-20146} clearParameters. 
+DEBUG http-nio-8080-exec-8 druid.sql.Connection - {conn-10038} pool-recycle
+DEBUG http-nio-8080-exec-8 druid.sql.Connection - {conn-10038} pool-connect
+DEBUG http-nio-8080-exec-8 druid.sql.Statement - {conn-10038, pstmt-20147} Parameters : []
+DEBUG http-nio-8080-exec-8 druid.sql.Statement - {conn-10038, pstmt-20147} Types : []
+DEBUG http-nio-8080-exec-8 druid.sql.Statement - {conn-10038, pstmt-20147} executed. 107.9702 millis. SELECT * FROM `Attractions`.`view_overview` ORDER BY scenicareaID;
+DEBUG http-nio-8080-exec-8 druid.sql.ResultSet - {conn-10038, pstmt-20147, rs-50356} open
+DEBUG http-nio-8080-exec-8 druid.sql.ResultSet - {conn-10038, pstmt-20147, rs-50356} Header: [scenicareaID, sName, tprice, sOpenTime, sAddress, numberSold]
+DEBUG http-nio-8080-exec-8 druid.sql.ResultSet - {conn-10038, pstmt-20147, rs-50356} Result: [1, 波特禁忌之旅™, 100.0, 8:00-22:00, 哈利波特的魔法世界™, 0]
+DEBUG http-nio-8080-exec-8 druid.sql.ResultSet - {conn-10038, pstmt-20147, rs-50356} Result: [2, 霍格沃茨™城堡黑魔法之夜, 49.0, 8:00-22:00, 哈利波特的魔法世界™, 1]
+DEBUG http-nio-8080-exec-8 druid.sql.ResultSet - {conn-10038, pstmt-20147, rs-50356} Result: [3, 金刚360度3D历险, 0.0, 8:00-22:00, 金刚称霸, 0]
+DEBUG http-nio-8080-exec-8 druid.sql.ResultSet - {conn-10038, pstmt-20147, rs-50356} Result: [4, 淘气旋转过山车, 23.5, 8:00-22:00, 淘气旋转过山车, 2]
+DEBUG http-nio-8080-exec-8 druid.sql.ResultSet - {conn-10038, pstmt-20147, rs-50356} Result: [5, 水世界®, 66.5, 8:00-22:00, 水世界, 0]
+DEBUG http-nio-8080-exec-8 druid.sql.ResultSet - {conn-10038, pstmt-20147, rs-50356} Result: [6, 侏罗纪世界-激流勇进, 168.0, 8:00-22:00, 侏罗纪世界-激流勇进, 2]
+DEBUG http-nio-8080-exec-8 druid.sql.ResultSet - {conn-10038, pstmt-20147, rs-50356} Result: [7, 环球影城动物演员, 68.0, 8:00-22:00, 环球影城动物演员, 2]
+DEBUG http-nio-8080-exec-8 druid.sql.ResultSet - {conn-10038, pstmt-20147, rs-50356} Result: [8, 鹰马的飞行, 98.0, 8:00-22:00, 鹰马的飞行, 1]
+DEBUG http-nio-8080-exec-8 druid.sql.ResultSet - {conn-10038, pstmt-20147, rs-50356} Result: [9, 梦工厂功夫熊猫, 68.0, 8:00-22:00, 梦工厂功夫熊猫, 1]
+DEBUG http-nio-8080-exec-8 druid.sql.ResultSet - {conn-10038, pstmt-20147, rs-50356} Result: [10, 速度与激情——超动力, 328.0, 8:00-22:00, 速度与激情——超动力, 0]
+DEBUG http-nio-8080-exec-8 druid.sql.ResultSet - {conn-10038, pstmt-20147, rs-50356} closed
+DEBUG http-nio-8080-exec-8 druid.sql.Statement - {conn-10038, pstmt-20147} clearParameters. 
+DEBUG http-nio-8080-exec-8 druid.sql.Connection - {conn-10038} pool-recycle
+DEBUG http-nio-8080-exec-9 druid.sql.Connection - {conn-10038} closed
+DEBUG Druid-ConnectionPool-Create-6444791 druid.sql.Connection - {conn-10039,procId-1603987} connected
+DEBUG http-nio-8080-exec-9 druid.sql.Connection - {conn-10039} pool-connect
+DEBUG http-nio-8080-exec-9 druid.sql.Statement - {conn-10039, pstmt-20152} created. SELECT aName,remain FROM tbl_attractions,tbl_ticketremain WHERE dateTime=?;
+DEBUG http-nio-8080-exec-9 druid.sql.Statement - {conn-10039, pstmt-20152} Parameters : [2021-07-08]
+DEBUG http-nio-8080-exec-9 druid.sql.Statement - {conn-10039, pstmt-20152} Types : [VARCHAR]
+DEBUG http-nio-8080-exec-9 druid.sql.Statement - {conn-10039, pstmt-20152} executed. 82.2465 millis. SELECT aName,remain FROM tbl_attractions,tbl_ticketremain WHERE dateTime=?;
+DEBUG http-nio-8080-exec-9 druid.sql.ResultSet - {conn-10039, pstmt-20152, rs-50357} open
+DEBUG http-nio-8080-exec-9 druid.sql.ResultSet - {conn-10039, pstmt-20152, rs-50357} Header: [aName, remain]
+DEBUG http-nio-8080-exec-9 druid.sql.ResultSet - {conn-10039, pstmt-20152, rs-50357} Result: [好莱坞环球影城™, 2995]
+DEBUG http-nio-8080-exec-9 druid.sql.ResultSet - {conn-10039, pstmt-20152, rs-50357} closed
+DEBUG http-nio-8080-exec-9 druid.sql.Statement - {conn-10039, pstmt-20152} clearParameters. 
+DEBUG http-nio-8080-exec-9 druid.sql.Connection - {conn-10039} pool-recycle
+DEBUG http-nio-8080-exec-9 druid.sql.Connection - {conn-10039} pool-connect
+DEBUG http-nio-8080-exec-9 druid.sql.Statement - {conn-10039, pstmt-20153} created. SELECT * FROM `Attractions`.`view_overview` ORDER BY scenicareaID;
+DEBUG http-nio-8080-exec-9 druid.sql.Statement - {conn-10039, pstmt-20153} Parameters : []
+DEBUG http-nio-8080-exec-9 druid.sql.Statement - {conn-10039, pstmt-20153} Types : []
+DEBUG http-nio-8080-exec-9 druid.sql.Statement - {conn-10039, pstmt-20153} executed. 73.5319 millis. SELECT * FROM `Attractions`.`view_overview` ORDER BY scenicareaID;
+DEBUG http-nio-8080-exec-9 druid.sql.ResultSet - {conn-10039, pstmt-20153, rs-50358} open
+DEBUG http-nio-8080-exec-9 druid.sql.ResultSet - {conn-10039, pstmt-20153, rs-50358} Header: [scenicareaID, sName, tprice, sOpenTime, sAddress, numberSold]
+DEBUG http-nio-8080-exec-9 druid.sql.ResultSet - {conn-10039, pstmt-20153, rs-50358} Result: [1, 波特禁忌之旅™, 100.0, 8:00-22:00, 哈利波特的魔法世界™, 0]
+DEBUG http-nio-8080-exec-9 druid.sql.ResultSet - {conn-10039, pstmt-20153, rs-50358} Result: [2, 霍格沃茨™城堡黑魔法之夜, 49.0, 8:00-22:00, 哈利波特的魔法世界™, 1]
+DEBUG http-nio-8080-exec-9 druid.sql.ResultSet - {conn-10039, pstmt-20153, rs-50358} Result: [3, 金刚360度3D历险, 0.0, 8:00-22:00, 金刚称霸, 0]
+DEBUG http-nio-8080-exec-9 druid.sql.ResultSet - {conn-10039, pstmt-20153, rs-50358} Result: [4, 淘气旋转过山车, 23.5, 8:00-22:00, 淘气旋转过山车, 2]
+DEBUG http-nio-8080-exec-9 druid.sql.ResultSet - {conn-10039, pstmt-20153, rs-50358} Result: [5, 水世界®, 66.5, 8:00-22:00, 水世界, 0]
+DEBUG http-nio-8080-exec-9 druid.sql.ResultSet - {conn-10039, pstmt-20153, rs-50358} Result: [6, 侏罗纪世界-激流勇进, 168.0, 8:00-22:00, 侏罗纪世界-激流勇进, 2]
+DEBUG http-nio-8080-exec-9 druid.sql.ResultSet - {conn-10039, pstmt-20153, rs-50358} Result: [7, 环球影城动物演员, 68.0, 8:00-22:00, 环球影城动物演员, 2]
+DEBUG http-nio-8080-exec-9 druid.sql.ResultSet - {conn-10039, pstmt-20153, rs-50358} Result: [8, 鹰马的飞行, 98.0, 8:00-22:00, 鹰马的飞行, 1]
+DEBUG http-nio-8080-exec-9 druid.sql.ResultSet - {conn-10039, pstmt-20153, rs-50358} Result: [9, 梦工厂功夫熊猫, 68.0, 8:00-22:00, 梦工厂功夫熊猫, 1]
+DEBUG http-nio-8080-exec-9 druid.sql.ResultSet - {conn-10039, pstmt-20153, rs-50358} Result: [10, 速度与激情——超动力, 328.0, 8:00-22:00, 速度与激情——超动力, 0]
+DEBUG http-nio-8080-exec-9 druid.sql.ResultSet - {conn-10039, pstmt-20153, rs-50358} closed
+DEBUG http-nio-8080-exec-9 druid.sql.Statement - {conn-10039, pstmt-20153} clearParameters. 
+DEBUG http-nio-8080-exec-9 druid.sql.Connection - {conn-10039} pool-recycle
+DEBUG http-nio-8080-exec-10 druid.sql.Connection - {conn-10039} pool-connect
+DEBUG http-nio-8080-exec-10 druid.sql.Statement - {conn-10039, pstmt-20152} Parameters : [2021-07-08]
+DEBUG http-nio-8080-exec-10 druid.sql.Statement - {conn-10039, pstmt-20152} Types : [VARCHAR]
+DEBUG http-nio-8080-exec-10 druid.sql.Statement - {conn-10039, pstmt-20152} executed. 58.6612 millis. SELECT aName,remain FROM tbl_attractions,tbl_ticketremain WHERE dateTime=?;
+DEBUG http-nio-8080-exec-10 druid.sql.ResultSet - {conn-10039, pstmt-20152, rs-50359} open
+DEBUG http-nio-8080-exec-10 druid.sql.ResultSet - {conn-10039, pstmt-20152, rs-50359} Header: [aName, remain]
+DEBUG http-nio-8080-exec-10 druid.sql.ResultSet - {conn-10039, pstmt-20152, rs-50359} Result: [好莱坞环球影城™, 2995]
+DEBUG http-nio-8080-exec-10 druid.sql.ResultSet - {conn-10039, pstmt-20152, rs-50359} closed
+DEBUG http-nio-8080-exec-10 druid.sql.Statement - {conn-10039, pstmt-20152} clearParameters. 
+DEBUG http-nio-8080-exec-10 druid.sql.Connection - {conn-10039} pool-recycle
+DEBUG http-nio-8080-exec-10 druid.sql.Connection - {conn-10039} pool-connect
+DEBUG http-nio-8080-exec-10 druid.sql.Statement - {conn-10039, pstmt-20153} Parameters : []
+DEBUG http-nio-8080-exec-10 druid.sql.Statement - {conn-10039, pstmt-20153} Types : []
+DEBUG http-nio-8080-exec-10 druid.sql.Statement - {conn-10039, pstmt-20153} executed. 364.2707 millis. SELECT * FROM `Attractions`.`view_overview` ORDER BY scenicareaID;
+DEBUG http-nio-8080-exec-10 druid.sql.ResultSet - {conn-10039, pstmt-20153, rs-50360} open
+DEBUG http-nio-8080-exec-10 druid.sql.ResultSet - {conn-10039, pstmt-20153, rs-50360} Header: [scenicareaID, sName, tprice, sOpenTime, sAddress, numberSold]
+DEBUG http-nio-8080-exec-10 druid.sql.ResultSet - {conn-10039, pstmt-20153, rs-50360} Result: [1, 波特禁忌之旅™, 100.0, 8:00-22:00, 哈利波特的魔法世界™, 0]
+DEBUG http-nio-8080-exec-10 druid.sql.ResultSet - {conn-10039, pstmt-20153, rs-50360} Result: [2, 霍格沃茨™城堡黑魔法之夜, 49.0, 8:00-22:00, 哈利波特的魔法世界™, 1]
+DEBUG http-nio-8080-exec-10 druid.sql.ResultSet - {conn-10039, pstmt-20153, rs-50360} Result: [3, 金刚360度3D历险, 0.0, 8:00-22:00, 金刚称霸, 0]
+DEBUG http-nio-8080-exec-10 druid.sql.ResultSet - {conn-10039, pstmt-20153, rs-50360} Result: [4, 淘气旋转过山车, 23.5, 8:00-22:00, 淘气旋转过山车, 2]
+DEBUG http-nio-8080-exec-10 druid.sql.ResultSet - {conn-10039, pstmt-20153, rs-50360} Result: [5, 水世界®, 66.5, 8:00-22:00, 水世界, 0]
+DEBUG http-nio-8080-exec-10 druid.sql.ResultSet - {conn-10039, pstmt-20153, rs-50360} Result: [6, 侏罗纪世界-激流勇进, 168.0, 8:00-22:00, 侏罗纪世界-激流勇进, 2]
+DEBUG http-nio-8080-exec-10 druid.sql.ResultSet - {conn-10039, pstmt-20153, rs-50360} Result: [7, 环球影城动物演员, 68.0, 8:00-22:00, 环球影城动物演员, 2]
+DEBUG http-nio-8080-exec-10 druid.sql.ResultSet - {conn-10039, pstmt-20153, rs-50360} Result: [8, 鹰马的飞行, 98.0, 8:00-22:00, 鹰马的飞行, 1]
+DEBUG http-nio-8080-exec-10 druid.sql.ResultSet - {conn-10039, pstmt-20153, rs-50360} Result: [9, 梦工厂功夫熊猫, 68.0, 8:00-22:00, 梦工厂功夫熊猫, 1]
+DEBUG http-nio-8080-exec-10 druid.sql.ResultSet - {conn-10039, pstmt-20153, rs-50360} Result: [10, 速度与激情——超动力, 328.0, 8:00-22:00, 速度与激情——超动力, 0]
+DEBUG http-nio-8080-exec-10 druid.sql.ResultSet - {conn-10039, pstmt-20153, rs-50360} closed
+DEBUG http-nio-8080-exec-10 druid.sql.Statement - {conn-10039, pstmt-20153} clearParameters. 
+DEBUG http-nio-8080-exec-10 druid.sql.Connection - {conn-10039} pool-recycle
+DEBUG http-nio-8080-exec-1 druid.sql.Connection - {conn-10039} pool-connect
+DEBUG http-nio-8080-exec-1 druid.sql.Statement - {conn-10039, pstmt-20152} Parameters : [2021-07-08]
+DEBUG http-nio-8080-exec-1 druid.sql.Statement - {conn-10039, pstmt-20152} Types : [VARCHAR]
+DEBUG http-nio-8080-exec-1 druid.sql.Statement - {conn-10039, pstmt-20152} executed. 56.9448 millis. SELECT aName,remain FROM tbl_attractions,tbl_ticketremain WHERE dateTime=?;
+DEBUG http-nio-8080-exec-1 druid.sql.ResultSet - {conn-10039, pstmt-20152, rs-50361} open
+DEBUG http-nio-8080-exec-1 druid.sql.ResultSet - {conn-10039, pstmt-20152, rs-50361} Header: [aName, remain]
+DEBUG http-nio-8080-exec-1 druid.sql.ResultSet - {conn-10039, pstmt-20152, rs-50361} Result: [好莱坞环球影城™, 2995]
+DEBUG http-nio-8080-exec-1 druid.sql.ResultSet - {conn-10039, pstmt-20152, rs-50361} closed
+DEBUG http-nio-8080-exec-1 druid.sql.Statement - {conn-10039, pstmt-20152} clearParameters. 
+DEBUG http-nio-8080-exec-1 druid.sql.Connection - {conn-10039} pool-recycle
+DEBUG http-nio-8080-exec-1 druid.sql.Connection - {conn-10039} pool-connect
+DEBUG http-nio-8080-exec-1 druid.sql.Statement - {conn-10039, pstmt-20153} Parameters : []
+DEBUG http-nio-8080-exec-1 druid.sql.Statement - {conn-10039, pstmt-20153} Types : []
+DEBUG http-nio-8080-exec-1 druid.sql.Statement - {conn-10039, pstmt-20153} executed. 55.7316 millis. SELECT * FROM `Attractions`.`view_overview` ORDER BY scenicareaID;
+DEBUG http-nio-8080-exec-1 druid.sql.ResultSet - {conn-10039, pstmt-20153, rs-50362} open
+DEBUG http-nio-8080-exec-1 druid.sql.ResultSet - {conn-10039, pstmt-20153, rs-50362} Header: [scenicareaID, sName, tprice, sOpenTime, sAddress, numberSold]
+DEBUG http-nio-8080-exec-1 druid.sql.ResultSet - {conn-10039, pstmt-20153, rs-50362} Result: [1, 波特禁忌之旅™, 100.0, 8:00-22:00, 哈利波特的魔法世界™, 0]
+DEBUG http-nio-8080-exec-1 druid.sql.ResultSet - {conn-10039, pstmt-20153, rs-50362} Result: [2, 霍格沃茨™城堡黑魔法之夜, 49.0, 8:00-22:00, 哈利波特的魔法世界™, 1]
+DEBUG http-nio-8080-exec-1 druid.sql.ResultSet - {conn-10039, pstmt-20153, rs-50362} Result: [3, 金刚360度3D历险, 0.0, 8:00-22:00, 金刚称霸, 0]
+DEBUG http-nio-8080-exec-1 druid.sql.ResultSet - {conn-10039, pstmt-20153, rs-50362} Result: [4, 淘气旋转过山车, 23.5, 8:00-22:00, 淘气旋转过山车, 2]
+DEBUG http-nio-8080-exec-1 druid.sql.ResultSet - {conn-10039, pstmt-20153, rs-50362} Result: [5, 水世界®, 66.5, 8:00-22:00, 水世界, 0]
+DEBUG http-nio-8080-exec-1 druid.sql.ResultSet - {conn-10039, pstmt-20153, rs-50362} Result: [6, 侏罗纪世界-激流勇进, 168.0, 8:00-22:00, 侏罗纪世界-激流勇进, 2]
+DEBUG http-nio-8080-exec-1 druid.sql.ResultSet - {conn-10039, pstmt-20153, rs-50362} Result: [7, 环球影城动物演员, 68.0, 8:00-22:00, 环球影城动物演员, 2]
+DEBUG http-nio-8080-exec-1 druid.sql.ResultSet - {conn-10039, pstmt-20153, rs-50362} Result: [8, 鹰马的飞行, 98.0, 8:00-22:00, 鹰马的飞行, 1]
+DEBUG http-nio-8080-exec-1 druid.sql.ResultSet - {conn-10039, pstmt-20153, rs-50362} Result: [9, 梦工厂功夫熊猫, 68.0, 8:00-22:00, 梦工厂功夫熊猫, 1]
+DEBUG http-nio-8080-exec-1 druid.sql.ResultSet - {conn-10039, pstmt-20153, rs-50362} Result: [10, 速度与激情——超动力, 328.0, 8:00-22:00, 速度与激情——超动力, 0]
+DEBUG http-nio-8080-exec-1 druid.sql.ResultSet - {conn-10039, pstmt-20153, rs-50362} closed
+DEBUG http-nio-8080-exec-1 druid.sql.Statement - {conn-10039, pstmt-20153} clearParameters. 
+DEBUG http-nio-8080-exec-1 druid.sql.Connection - {conn-10039} pool-recycle
+DEBUG http-nio-8080-exec-2 druid.sql.Connection - {conn-10039} pool-connect
+DEBUG http-nio-8080-exec-2 druid.sql.Statement - {conn-10039, pstmt-20154} created. SELECT
+            tbl_trade.tradeID AS tradeID,
+            tbl_user.userID AS uid,
+            name,
+            telnumber,
+            tType,
+            totalPrice AS price,
+            orderDate,
+            tradeDate,
+            isRefund,
+            tbl_trade.numberOfPeople AS numberOfPeople
+        FROM tbl_trade,tbl_user
+        WHERE
+            tbl_trade.userID = tbl_user.userID AND
+                tbl_trade.tradeID IN (
+                SELECT DISTINCT
+                    tbl_tradeDetail.tradeID
+                FROM tbl_tradeDetail
+                WHERE userID = ?
+            );
+DEBUG http-nio-8080-exec-2 druid.sql.Statement - {conn-10039, pstmt-20154} Parameters : [1]
+DEBUG http-nio-8080-exec-2 druid.sql.Statement - {conn-10039, pstmt-20154} Types : [VARCHAR]
+DEBUG http-nio-8080-exec-2 druid.sql.Statement - {conn-10039, pstmt-20154} executed. 61.75 millis. SELECT
+            tbl_trade.tradeID AS tradeID,
+            tbl_user.userID AS uid,
+            name,
+            telnumber,
+            tType,
+            totalPrice AS price,
+            orderDate,
+            tradeDate,
+            isRefund,
+            tbl_trade.numberOfPeople AS numberOfPeople
+        FROM tbl_trade,tbl_user
+        WHERE
+            tbl_trade.userID = tbl_user.userID AND
+                tbl_trade.tradeID IN (
+                SELECT DISTINCT
+                    tbl_tradeDetail.tradeID
+                FROM tbl_tradeDetail
+                WHERE userID = ?
+            );
+DEBUG http-nio-8080-exec-2 druid.sql.ResultSet - {conn-10039, pstmt-20154, rs-50363} open
+DEBUG http-nio-8080-exec-2 druid.sql.ResultSet - {conn-10039, pstmt-20154, rs-50363} Header: [tradeID, userID, name, telnumber, tType, totalPrice, orderDate, tradeDate, isRefund, numberOfPeople]
+DEBUG http-nio-8080-exec-2 druid.sql.ResultSet - {conn-10039, pstmt-20154, rs-50363} Result: [16257305630111, 1, 张三, 123456, group, 1110.6, 2021-07-08, 2021-07-08 15:49:23.0, 0, 5]
+DEBUG http-nio-8080-exec-2 druid.sql.ResultSet - {conn-10039, pstmt-20154, rs-50363} closed
+DEBUG http-nio-8080-exec-2 druid.sql.Statement - {conn-10039, pstmt-20154} clearParameters. 
+DEBUG http-nio-8080-exec-2 druid.sql.Connection - {conn-10039} pool-recycle
+DEBUG http-nio-8080-exec-2 druid.sql.Connection - {conn-10039} pool-connect
+DEBUG http-nio-8080-exec-2 druid.sql.Statement - {conn-10039, pstmt-20155} created. SELECT
+            tbl_user.userID AS uid,
+            name,
+            telnumber,
+            tbl_tradeDetail.tprice AS price
+        FROM tbl_user,tbl_tradeDetail
+        WHERE tbl_user.userID=tbl_tradeDetail.userID AND
+            tbl_tradeDetail.tradeID = ? AND
+            tbl_tradeDetail.ticketID=1 AND
+                tbl_user.userID IN
+                (SELECT DISTINCT tbl_tradeDetail.userID
+                 FROM tbl_tradeDetail
+                 WHERE
+                     tbl_tradeDetail.tradeID = ? AND
+                     tbl_tradeDetail.ticketID=1);
+DEBUG http-nio-8080-exec-2 druid.sql.Statement - {conn-10039, pstmt-20155} Parameters : [16257305630111, 16257305630111]
+DEBUG http-nio-8080-exec-2 druid.sql.Statement - {conn-10039, pstmt-20155} Types : [BIGINT, BIGINT]
+DEBUG http-nio-8080-exec-2 druid.sql.Statement - {conn-10039, pstmt-20155} executed. 61.7895 millis. SELECT
+            tbl_user.userID AS uid,
+            name,
+            telnumber,
+            tbl_tradeDetail.tprice AS price
+        FROM tbl_user,tbl_tradeDetail
+        WHERE tbl_user.userID=tbl_tradeDetail.userID AND
+            tbl_tradeDetail.tradeID = ? AND
+            tbl_tradeDetail.ticketID=1 AND
+                tbl_user.userID IN
+                (SELECT DISTINCT tbl_tradeDetail.userID
+                 FROM tbl_tradeDetail
+                 WHERE
+                     tbl_tradeDetail.tradeID = ? AND
+                     tbl_tradeDetail.ticketID=1);
+DEBUG http-nio-8080-exec-2 druid.sql.ResultSet - {conn-10039, pstmt-20155, rs-50364} open
+DEBUG http-nio-8080-exec-2 druid.sql.ResultSet - {conn-10039, pstmt-20155, rs-50364} Header: [userID, name, telnumber, tprice]
+DEBUG http-nio-8080-exec-2 druid.sql.ResultSet - {conn-10039, pstmt-20155, rs-50364} Result: [1, 张三, 123456, 100.0]
+DEBUG http-nio-8080-exec-2 druid.sql.ResultSet - {conn-10039, pstmt-20155, rs-50364} Result: [10, 王大锤, 123, 100.0]
+DEBUG http-nio-8080-exec-2 druid.sql.ResultSet - {conn-10039, pstmt-20155, rs-50364} Result: [2, 李四, 123, 100.0]
+DEBUG http-nio-8080-exec-2 druid.sql.ResultSet - {conn-10039, pstmt-20155, rs-50364} Result: [3, 王五, 123, 100.0]
+DEBUG http-nio-8080-exec-2 druid.sql.ResultSet - {conn-10039, pstmt-20155, rs-50364} Result: [4, 赵六, 123, 100.0]
+DEBUG http-nio-8080-exec-2 druid.sql.ResultSet - {conn-10039, pstmt-20155, rs-50364} closed
+DEBUG http-nio-8080-exec-2 druid.sql.Statement - {conn-10039, pstmt-20155} clearParameters. 
+DEBUG http-nio-8080-exec-2 druid.sql.Connection - {conn-10039} pool-recycle
+DEBUG http-nio-8080-exec-3 druid.sql.Connection - {conn-10039} pool-connect
+DEBUG http-nio-8080-exec-3 druid.sql.Statement - {conn-10039, pstmt-20152} Parameters : [2021-07-08]
+DEBUG http-nio-8080-exec-3 druid.sql.Statement - {conn-10039, pstmt-20152} Types : [VARCHAR]
+DEBUG http-nio-8080-exec-3 druid.sql.Statement - {conn-10039, pstmt-20152} executed. 57.8868 millis. SELECT aName,remain FROM tbl_attractions,tbl_ticketremain WHERE dateTime=?;
+DEBUG http-nio-8080-exec-3 druid.sql.ResultSet - {conn-10039, pstmt-20152, rs-50365} open
+DEBUG http-nio-8080-exec-3 druid.sql.ResultSet - {conn-10039, pstmt-20152, rs-50365} Header: [aName, remain]
+DEBUG http-nio-8080-exec-3 druid.sql.ResultSet - {conn-10039, pstmt-20152, rs-50365} Result: [好莱坞环球影城™, 2995]
+DEBUG http-nio-8080-exec-3 druid.sql.ResultSet - {conn-10039, pstmt-20152, rs-50365} closed
+DEBUG http-nio-8080-exec-3 druid.sql.Statement - {conn-10039, pstmt-20152} clearParameters. 
+DEBUG http-nio-8080-exec-3 druid.sql.Connection - {conn-10039} pool-recycle
+DEBUG http-nio-8080-exec-3 druid.sql.Connection - {conn-10039} pool-connect
+DEBUG http-nio-8080-exec-3 druid.sql.Statement - {conn-10039, pstmt-20153} Parameters : []
+DEBUG http-nio-8080-exec-3 druid.sql.Statement - {conn-10039, pstmt-20153} Types : []
+DEBUG http-nio-8080-exec-3 druid.sql.Statement - {conn-10039, pstmt-20153} executed. 62.0636 millis. SELECT * FROM `Attractions`.`view_overview` ORDER BY scenicareaID;
+DEBUG http-nio-8080-exec-3 druid.sql.ResultSet - {conn-10039, pstmt-20153, rs-50366} open
+DEBUG http-nio-8080-exec-3 druid.sql.ResultSet - {conn-10039, pstmt-20153, rs-50366} Header: [scenicareaID, sName, tprice, sOpenTime, sAddress, numberSold]
+DEBUG http-nio-8080-exec-3 druid.sql.ResultSet - {conn-10039, pstmt-20153, rs-50366} Result: [1, 波特禁忌之旅™, 100.0, 8:00-22:00, 哈利波特的魔法世界™, 0]
+DEBUG http-nio-8080-exec-3 druid.sql.ResultSet - {conn-10039, pstmt-20153, rs-50366} Result: [2, 霍格沃茨™城堡黑魔法之夜, 49.0, 8:00-22:00, 哈利波特的魔法世界™, 1]
+DEBUG http-nio-8080-exec-3 druid.sql.ResultSet - {conn-10039, pstmt-20153, rs-50366} Result: [3, 金刚360度3D历险, 0.0, 8:00-22:00, 金刚称霸, 0]
+DEBUG http-nio-8080-exec-3 druid.sql.ResultSet - {conn-10039, pstmt-20153, rs-50366} Result: [4, 淘气旋转过山车, 23.5, 8:00-22:00, 淘气旋转过山车, 2]
+DEBUG http-nio-8080-exec-3 druid.sql.ResultSet - {conn-10039, pstmt-20153, rs-50366} Result: [5, 水世界®, 66.5, 8:00-22:00, 水世界, 0]
+DEBUG http-nio-8080-exec-3 druid.sql.ResultSet - {conn-10039, pstmt-20153, rs-50366} Result: [6, 侏罗纪世界-激流勇进, 168.0, 8:00-22:00, 侏罗纪世界-激流勇进, 2]
+DEBUG http-nio-8080-exec-3 druid.sql.ResultSet - {conn-10039, pstmt-20153, rs-50366} Result: [7, 环球影城动物演员, 68.0, 8:00-22:00, 环球影城动物演员, 2]
+DEBUG http-nio-8080-exec-3 druid.sql.ResultSet - {conn-10039, pstmt-20153, rs-50366} Result: [8, 鹰马的飞行, 98.0, 8:00-22:00, 鹰马的飞行, 1]
+DEBUG http-nio-8080-exec-3 druid.sql.ResultSet - {conn-10039, pstmt-20153, rs-50366} Result: [9, 梦工厂功夫熊猫, 68.0, 8:00-22:00, 梦工厂功夫熊猫, 1]
+DEBUG http-nio-8080-exec-3 druid.sql.ResultSet - {conn-10039, pstmt-20153, rs-50366} Result: [10, 速度与激情——超动力, 328.0, 8:00-22:00, 速度与激情——超动力, 0]
+DEBUG http-nio-8080-exec-3 druid.sql.ResultSet - {conn-10039, pstmt-20153, rs-50366} closed
+DEBUG http-nio-8080-exec-3 druid.sql.Statement - {conn-10039, pstmt-20153} clearParameters. 
+DEBUG http-nio-8080-exec-3 druid.sql.Connection - {conn-10039} pool-recycle
+DEBUG http-nio-8080-exec-6 druid.sql.Connection - {conn-10039} closed
+DEBUG Druid-ConnectionPool-Create-6444791 druid.sql.Connection - {conn-10040,procId-1603988} connected
+DEBUG http-nio-8080-exec-6 druid.sql.Connection - {conn-10040} pool-connect
+DEBUG http-nio-8080-exec-6 druid.sql.Statement - {conn-10040, pstmt-20156} created. SELECT aName,remain FROM tbl_attractions,tbl_ticketremain WHERE dateTime=?;
+DEBUG http-nio-8080-exec-6 druid.sql.Statement - {conn-10040, pstmt-20156} Parameters : [2021-07-08]
+DEBUG http-nio-8080-exec-6 druid.sql.Statement - {conn-10040, pstmt-20156} Types : [VARCHAR]
+DEBUG http-nio-8080-exec-6 druid.sql.Statement - {conn-10040, pstmt-20156} executed. 62.4836 millis. SELECT aName,remain FROM tbl_attractions,tbl_ticketremain WHERE dateTime=?;
+DEBUG http-nio-8080-exec-6 druid.sql.ResultSet - {conn-10040, pstmt-20156, rs-50367} open
+DEBUG http-nio-8080-exec-6 druid.sql.ResultSet - {conn-10040, pstmt-20156, rs-50367} Header: [aName, remain]
+DEBUG http-nio-8080-exec-6 druid.sql.ResultSet - {conn-10040, pstmt-20156, rs-50367} Result: [好莱坞环球影城™, 2995]
+DEBUG http-nio-8080-exec-6 druid.sql.ResultSet - {conn-10040, pstmt-20156, rs-50367} closed
+DEBUG http-nio-8080-exec-6 druid.sql.Statement - {conn-10040, pstmt-20156} clearParameters. 
+DEBUG http-nio-8080-exec-6 druid.sql.Connection - {conn-10040} pool-recycle
+DEBUG http-nio-8080-exec-6 druid.sql.Connection - {conn-10040} pool-connect
+DEBUG http-nio-8080-exec-6 druid.sql.Statement - {conn-10040, pstmt-20157} created. SELECT * FROM `Attractions`.`view_overview` ORDER BY scenicareaID;
+DEBUG http-nio-8080-exec-6 druid.sql.Statement - {conn-10040, pstmt-20157} Parameters : []
+DEBUG http-nio-8080-exec-6 druid.sql.Statement - {conn-10040, pstmt-20157} Types : []
+DEBUG http-nio-8080-exec-6 druid.sql.Statement - {conn-10040, pstmt-20157} executed. 63.9554 millis. SELECT * FROM `Attractions`.`view_overview` ORDER BY scenicareaID;
+DEBUG http-nio-8080-exec-6 druid.sql.ResultSet - {conn-10040, pstmt-20157, rs-50368} open
+DEBUG http-nio-8080-exec-6 druid.sql.ResultSet - {conn-10040, pstmt-20157, rs-50368} Header: [scenicareaID, sName, tprice, sOpenTime, sAddress, numberSold]
+DEBUG http-nio-8080-exec-6 druid.sql.ResultSet - {conn-10040, pstmt-20157, rs-50368} Result: [1, 波特禁忌之旅™, 100.0, 8:00-22:00, 哈利波特的魔法世界™, 0]
+DEBUG http-nio-8080-exec-6 druid.sql.ResultSet - {conn-10040, pstmt-20157, rs-50368} Result: [2, 霍格沃茨™城堡黑魔法之夜, 49.0, 8:00-22:00, 哈利波特的魔法世界™, 1]
+DEBUG http-nio-8080-exec-6 druid.sql.ResultSet - {conn-10040, pstmt-20157, rs-50368} Result: [3, 金刚360度3D历险, 0.0, 8:00-22:00, 金刚称霸, 0]
+DEBUG http-nio-8080-exec-6 druid.sql.ResultSet - {conn-10040, pstmt-20157, rs-50368} Result: [4, 淘气旋转过山车, 23.5, 8:00-22:00, 淘气旋转过山车, 2]
+DEBUG http-nio-8080-exec-6 druid.sql.ResultSet - {conn-10040, pstmt-20157, rs-50368} Result: [5, 水世界®, 66.5, 8:00-22:00, 水世界, 0]
+DEBUG http-nio-8080-exec-6 druid.sql.ResultSet - {conn-10040, pstmt-20157, rs-50368} Result: [6, 侏罗纪世界-激流勇进, 168.0, 8:00-22:00, 侏罗纪世界-激流勇进, 2]
+DEBUG http-nio-8080-exec-6 druid.sql.ResultSet - {conn-10040, pstmt-20157, rs-50368} Result: [7, 环球影城动物演员, 68.0, 8:00-22:00, 环球影城动物演员, 2]
+DEBUG http-nio-8080-exec-6 druid.sql.ResultSet - {conn-10040, pstmt-20157, rs-50368} Result: [8, 鹰马的飞行, 98.0, 8:00-22:00, 鹰马的飞行, 1]
+DEBUG http-nio-8080-exec-6 druid.sql.ResultSet - {conn-10040, pstmt-20157, rs-50368} Result: [9, 梦工厂功夫熊猫, 68.0, 8:00-22:00, 梦工厂功夫熊猫, 1]
+DEBUG http-nio-8080-exec-6 druid.sql.ResultSet - {conn-10040, pstmt-20157, rs-50368} Result: [10, 速度与激情——超动力, 328.0, 8:00-22:00, 速度与激情——超动力, 0]
+DEBUG http-nio-8080-exec-6 druid.sql.ResultSet - {conn-10040, pstmt-20157, rs-50368} closed
+DEBUG http-nio-8080-exec-6 druid.sql.Statement - {conn-10040, pstmt-20157} clearParameters. 
+DEBUG http-nio-8080-exec-6 druid.sql.Connection - {conn-10040} pool-recycle
+DEBUG http-nio-8080-exec-5 druid.sql.Connection - {conn-10040} pool-connect
+DEBUG http-nio-8080-exec-5 druid.sql.Statement - {conn-10040, pstmt-20158} created. SELECT
+            tbl_trade.tradeID AS tradeID,
+            tbl_user.userID AS uid,
+            name,
+            telnumber,
+            tType,
+            totalPrice AS price,
+            orderDate,
+            tradeDate,
+            isRefund,
+            tbl_trade.numberOfPeople AS numberOfPeople
+        FROM tbl_trade,tbl_user
+        WHERE
+            tbl_trade.userID = tbl_user.userID AND
+                tbl_trade.tradeID IN (
+                SELECT DISTINCT
+                    tbl_tradeDetail.tradeID
+                FROM tbl_tradeDetail
+                WHERE userID = ?
+            );
+DEBUG http-nio-8080-exec-5 druid.sql.Statement - {conn-10040, pstmt-20158} Parameters : [1]
+DEBUG http-nio-8080-exec-5 druid.sql.Statement - {conn-10040, pstmt-20158} Types : [VARCHAR]
+DEBUG http-nio-8080-exec-5 druid.sql.Statement - {conn-10040, pstmt-20158} executed. 66.173 millis. SELECT
+            tbl_trade.tradeID AS tradeID,
+            tbl_user.userID AS uid,
+            name,
+            telnumber,
+            tType,
+            totalPrice AS price,
+            orderDate,
+            tradeDate,
+            isRefund,
+            tbl_trade.numberOfPeople AS numberOfPeople
+        FROM tbl_trade,tbl_user
+        WHERE
+            tbl_trade.userID = tbl_user.userID AND
+                tbl_trade.tradeID IN (
+                SELECT DISTINCT
+                    tbl_tradeDetail.tradeID
+                FROM tbl_tradeDetail
+                WHERE userID = ?
+            );
+DEBUG http-nio-8080-exec-5 druid.sql.ResultSet - {conn-10040, pstmt-20158, rs-50369} open
+DEBUG http-nio-8080-exec-5 druid.sql.ResultSet - {conn-10040, pstmt-20158, rs-50369} Header: [tradeID, userID, name, telnumber, tType, totalPrice, orderDate, tradeDate, isRefund, numberOfPeople]
+DEBUG http-nio-8080-exec-5 druid.sql.ResultSet - {conn-10040, pstmt-20158, rs-50369} Result: [16257305630111, 1, 张三, 123456, group, 1110.6, 2021-07-08, 2021-07-08 15:49:23.0, 0, 5]
+DEBUG http-nio-8080-exec-5 druid.sql.ResultSet - {conn-10040, pstmt-20158, rs-50369} closed
+DEBUG http-nio-8080-exec-5 druid.sql.Statement - {conn-10040, pstmt-20158} clearParameters. 
+DEBUG http-nio-8080-exec-5 druid.sql.Connection - {conn-10040} pool-recycle
+DEBUG http-nio-8080-exec-5 druid.sql.Connection - {conn-10040} pool-connect
+DEBUG http-nio-8080-exec-5 druid.sql.Statement - {conn-10040, pstmt-20159} created. SELECT
+            tbl_user.userID AS uid,
+            name,
+            telnumber,
+            tbl_tradeDetail.tprice AS price
+        FROM tbl_user,tbl_tradeDetail
+        WHERE tbl_user.userID=tbl_tradeDetail.userID AND
+            tbl_tradeDetail.tradeID = ? AND
+            tbl_tradeDetail.ticketID=1 AND
+                tbl_user.userID IN
+                (SELECT DISTINCT tbl_tradeDetail.userID
+                 FROM tbl_tradeDetail
+                 WHERE
+                     tbl_tradeDetail.tradeID = ? AND
+                     tbl_tradeDetail.ticketID=1);
+DEBUG http-nio-8080-exec-5 druid.sql.Statement - {conn-10040, pstmt-20159} Parameters : [16257305630111, 16257305630111]
+DEBUG http-nio-8080-exec-5 druid.sql.Statement - {conn-10040, pstmt-20159} Types : [BIGINT, BIGINT]
+DEBUG http-nio-8080-exec-5 druid.sql.Statement - {conn-10040, pstmt-20159} executed. 62.2586 millis. SELECT
+            tbl_user.userID AS uid,
+            name,
+            telnumber,
+            tbl_tradeDetail.tprice AS price
+        FROM tbl_user,tbl_tradeDetail
+        WHERE tbl_user.userID=tbl_tradeDetail.userID AND
+            tbl_tradeDetail.tradeID = ? AND
+            tbl_tradeDetail.ticketID=1 AND
+                tbl_user.userID IN
+                (SELECT DISTINCT tbl_tradeDetail.userID
+                 FROM tbl_tradeDetail
+                 WHERE
+                     tbl_tradeDetail.tradeID = ? AND
+                     tbl_tradeDetail.ticketID=1);
+DEBUG http-nio-8080-exec-5 druid.sql.ResultSet - {conn-10040, pstmt-20159, rs-50370} open
+DEBUG http-nio-8080-exec-5 druid.sql.ResultSet - {conn-10040, pstmt-20159, rs-50370} Header: [userID, name, telnumber, tprice]
+DEBUG http-nio-8080-exec-5 druid.sql.ResultSet - {conn-10040, pstmt-20159, rs-50370} Result: [1, 张三, 123456, 100.0]
+DEBUG http-nio-8080-exec-5 druid.sql.ResultSet - {conn-10040, pstmt-20159, rs-50370} Result: [10, 王大锤, 123, 100.0]
+DEBUG http-nio-8080-exec-5 druid.sql.ResultSet - {conn-10040, pstmt-20159, rs-50370} Result: [2, 李四, 123, 100.0]
+DEBUG http-nio-8080-exec-5 druid.sql.ResultSet - {conn-10040, pstmt-20159, rs-50370} Result: [3, 王五, 123, 100.0]
+DEBUG http-nio-8080-exec-5 druid.sql.ResultSet - {conn-10040, pstmt-20159, rs-50370} Result: [4, 赵六, 123, 100.0]
+DEBUG http-nio-8080-exec-5 druid.sql.ResultSet - {conn-10040, pstmt-20159, rs-50370} closed
+DEBUG http-nio-8080-exec-5 druid.sql.Statement - {conn-10040, pstmt-20159} clearParameters. 
+DEBUG http-nio-8080-exec-5 druid.sql.Connection - {conn-10040} pool-recycle
+DEBUG http-nio-8080-exec-8 druid.sql.Connection - {conn-10040} pool-connect
+DEBUG http-nio-8080-exec-8 druid.sql.Statement - {conn-10040, pstmt-20156} Parameters : [2021-07-08]
+DEBUG http-nio-8080-exec-8 druid.sql.Statement - {conn-10040, pstmt-20156} Types : [VARCHAR]
+DEBUG http-nio-8080-exec-8 druid.sql.Statement - {conn-10040, pstmt-20156} executed. 67.772 millis. SELECT aName,remain FROM tbl_attractions,tbl_ticketremain WHERE dateTime=?;
+DEBUG http-nio-8080-exec-8 druid.sql.ResultSet - {conn-10040, pstmt-20156, rs-50371} open
+DEBUG http-nio-8080-exec-8 druid.sql.ResultSet - {conn-10040, pstmt-20156, rs-50371} Header: [aName, remain]
+DEBUG http-nio-8080-exec-8 druid.sql.ResultSet - {conn-10040, pstmt-20156, rs-50371} Result: [好莱坞环球影城™, 2995]
+DEBUG http-nio-8080-exec-8 druid.sql.ResultSet - {conn-10040, pstmt-20156, rs-50371} closed
+DEBUG http-nio-8080-exec-8 druid.sql.Statement - {conn-10040, pstmt-20156} clearParameters. 
+DEBUG http-nio-8080-exec-8 druid.sql.Connection - {conn-10040} pool-recycle
+DEBUG http-nio-8080-exec-8 druid.sql.Connection - {conn-10040} pool-connect
+DEBUG http-nio-8080-exec-8 druid.sql.Statement - {conn-10040, pstmt-20157} Parameters : []
+DEBUG http-nio-8080-exec-8 druid.sql.Statement - {conn-10040, pstmt-20157} Types : []
+DEBUG http-nio-8080-exec-8 druid.sql.Statement - {conn-10040, pstmt-20157} executed. 65.208 millis. SELECT * FROM `Attractions`.`view_overview` ORDER BY scenicareaID;
+DEBUG http-nio-8080-exec-8 druid.sql.ResultSet - {conn-10040, pstmt-20157, rs-50372} open
+DEBUG http-nio-8080-exec-8 druid.sql.ResultSet - {conn-10040, pstmt-20157, rs-50372} Header: [scenicareaID, sName, tprice, sOpenTime, sAddress, numberSold]
+DEBUG http-nio-8080-exec-8 druid.sql.ResultSet - {conn-10040, pstmt-20157, rs-50372} Result: [1, 波特禁忌之旅™, 100.0, 8:00-22:00, 哈利波特的魔法世界™, 0]
+DEBUG http-nio-8080-exec-8 druid.sql.ResultSet - {conn-10040, pstmt-20157, rs-50372} Result: [2, 霍格沃茨™城堡黑魔法之夜, 49.0, 8:00-22:00, 哈利波特的魔法世界™, 1]
+DEBUG http-nio-8080-exec-8 druid.sql.ResultSet - {conn-10040, pstmt-20157, rs-50372} Result: [3, 金刚360度3D历险, 0.0, 8:00-22:00, 金刚称霸, 0]
+DEBUG http-nio-8080-exec-8 druid.sql.ResultSet - {conn-10040, pstmt-20157, rs-50372} Result: [4, 淘气旋转过山车, 23.5, 8:00-22:00, 淘气旋转过山车, 2]
+DEBUG http-nio-8080-exec-8 druid.sql.ResultSet - {conn-10040, pstmt-20157, rs-50372} Result: [5, 水世界®, 66.5, 8:00-22:00, 水世界, 0]
+DEBUG http-nio-8080-exec-8 druid.sql.ResultSet - {conn-10040, pstmt-20157, rs-50372} Result: [6, 侏罗纪世界-激流勇进, 168.0, 8:00-22:00, 侏罗纪世界-激流勇进, 2]
+DEBUG http-nio-8080-exec-8 druid.sql.ResultSet - {conn-10040, pstmt-20157, rs-50372} Result: [7, 环球影城动物演员, 68.0, 8:00-22:00, 环球影城动物演员, 2]
+DEBUG http-nio-8080-exec-8 druid.sql.ResultSet - {conn-10040, pstmt-20157, rs-50372} Result: [8, 鹰马的飞行, 98.0, 8:00-22:00, 鹰马的飞行, 1]
+DEBUG http-nio-8080-exec-8 druid.sql.ResultSet - {conn-10040, pstmt-20157, rs-50372} Result: [9, 梦工厂功夫熊猫, 68.0, 8:00-22:00, 梦工厂功夫熊猫, 1]
+DEBUG http-nio-8080-exec-8 druid.sql.ResultSet - {conn-10040, pstmt-20157, rs-50372} Result: [10, 速度与激情——超动力, 328.0, 8:00-22:00, 速度与激情——超动力, 0]
+DEBUG http-nio-8080-exec-8 druid.sql.ResultSet - {conn-10040, pstmt-20157, rs-50372} closed
+DEBUG http-nio-8080-exec-8 druid.sql.Statement - {conn-10040, pstmt-20157} clearParameters. 
+DEBUG http-nio-8080-exec-8 druid.sql.Connection - {conn-10040} pool-recycle
+DEBUG http-nio-8080-exec-9 druid.sql.Connection - {conn-10040} closed
+DEBUG Druid-ConnectionPool-Create-6444791 druid.sql.Connection - {conn-10041,procId-1603989} connected
+DEBUG http-nio-8080-exec-9 druid.sql.Connection - {conn-10041} pool-connect
+DEBUG http-nio-8080-exec-9 druid.sql.Statement - {conn-10041, pstmt-20160} created. SELECT * FROM tbl_user WHERE userid=? AND password=?
+DEBUG http-nio-8080-exec-9 druid.sql.Statement - {conn-10041, pstmt-20160} Parameters : [123456, 123]
+DEBUG http-nio-8080-exec-9 druid.sql.Statement - {conn-10041, pstmt-20160} Types : [VARCHAR, VARCHAR]
+DEBUG http-nio-8080-exec-9 druid.sql.Statement - {conn-10041, pstmt-20160} executed. 63.5932 millis. SELECT * FROM tbl_user WHERE userid=? AND password=?
+DEBUG http-nio-8080-exec-9 druid.sql.ResultSet - {conn-10041, pstmt-20160, rs-50373} open
+DEBUG http-nio-8080-exec-9 druid.sql.ResultSet - {conn-10041, pstmt-20160, rs-50373} Header: [userID, telnumber, name, password, isAdmin]
+DEBUG http-nio-8080-exec-9 druid.sql.ResultSet - {conn-10041, pstmt-20160, rs-50373} closed
+DEBUG http-nio-8080-exec-9 druid.sql.Statement - {conn-10041, pstmt-20160} clearParameters. 
+DEBUG http-nio-8080-exec-9 druid.sql.Connection - {conn-10041} pool-recycle
+DEBUG http-nio-8080-exec-1 druid.sql.Connection - {conn-10041} closed
+DEBUG Druid-ConnectionPool-Create-6444791 druid.sql.Connection - {conn-10042,procId-1603991} connected
+DEBUG http-nio-8080-exec-1 druid.sql.Connection - {conn-10042} pool-connect
+DEBUG http-nio-8080-exec-1 druid.sql.Statement - {conn-10042, pstmt-20161} created. SELECT * FROM tbl_user WHERE userid=? AND password=?
+DEBUG http-nio-8080-exec-1 druid.sql.Statement - {conn-10042, pstmt-20161} Parameters : [1, 123]
+DEBUG http-nio-8080-exec-1 druid.sql.Statement - {conn-10042, pstmt-20161} Types : [VARCHAR, VARCHAR]
+DEBUG http-nio-8080-exec-1 druid.sql.Statement - {conn-10042, pstmt-20161} executed. 63.9999 millis. SELECT * FROM tbl_user WHERE userid=? AND password=?
+DEBUG http-nio-8080-exec-1 druid.sql.ResultSet - {conn-10042, pstmt-20161, rs-50374} open
+DEBUG http-nio-8080-exec-1 druid.sql.ResultSet - {conn-10042, pstmt-20161, rs-50374} Header: [userID, telnumber, name, password, isAdmin]
+DEBUG http-nio-8080-exec-1 druid.sql.ResultSet - {conn-10042, pstmt-20161, rs-50374} Result: [1, 123456, 张三, 123, 0]
+DEBUG http-nio-8080-exec-1 druid.sql.ResultSet - {conn-10042, pstmt-20161, rs-50374} closed
+DEBUG http-nio-8080-exec-1 druid.sql.Statement - {conn-10042, pstmt-20161} clearParameters. 
+DEBUG http-nio-8080-exec-1 druid.sql.Connection - {conn-10042} pool-recycle
+DEBUG http-nio-8080-exec-2 druid.sql.Connection - {conn-10042} pool-connect
+DEBUG http-nio-8080-exec-2 druid.sql.Statement - {conn-10042, pstmt-20162} created. SELECT aName,remain FROM tbl_attractions,tbl_ticketremain WHERE dateTime=?;
+DEBUG http-nio-8080-exec-2 druid.sql.Statement - {conn-10042, pstmt-20162} Parameters : [2021-07-08]
+DEBUG http-nio-8080-exec-2 druid.sql.Statement - {conn-10042, pstmt-20162} Types : [VARCHAR]
+DEBUG http-nio-8080-exec-2 druid.sql.Statement - {conn-10042, pstmt-20162} executed. 63.987 millis. SELECT aName,remain FROM tbl_attractions,tbl_ticketremain WHERE dateTime=?;
+DEBUG http-nio-8080-exec-2 druid.sql.ResultSet - {conn-10042, pstmt-20162, rs-50375} open
+DEBUG http-nio-8080-exec-2 druid.sql.ResultSet - {conn-10042, pstmt-20162, rs-50375} Header: [aName, remain]
+DEBUG http-nio-8080-exec-2 druid.sql.ResultSet - {conn-10042, pstmt-20162, rs-50375} Result: [好莱坞环球影城™, 2995]
+DEBUG http-nio-8080-exec-2 druid.sql.ResultSet - {conn-10042, pstmt-20162, rs-50375} closed
+DEBUG http-nio-8080-exec-2 druid.sql.Statement - {conn-10042, pstmt-20162} clearParameters. 
+DEBUG http-nio-8080-exec-2 druid.sql.Connection - {conn-10042} pool-recycle
+DEBUG http-nio-8080-exec-2 druid.sql.Connection - {conn-10042} pool-connect
+DEBUG http-nio-8080-exec-2 druid.sql.Statement - {conn-10042, pstmt-20163} created. SELECT * FROM `Attractions`.`view_overview` ORDER BY scenicareaID;
+DEBUG http-nio-8080-exec-2 druid.sql.Statement - {conn-10042, pstmt-20163} Parameters : []
+DEBUG http-nio-8080-exec-2 druid.sql.Statement - {conn-10042, pstmt-20163} Types : []
+DEBUG http-nio-8080-exec-2 druid.sql.Statement - {conn-10042, pstmt-20163} executed. 66.9558 millis. SELECT * FROM `Attractions`.`view_overview` ORDER BY scenicareaID;
+DEBUG http-nio-8080-exec-2 druid.sql.ResultSet - {conn-10042, pstmt-20163, rs-50376} open
+DEBUG http-nio-8080-exec-2 druid.sql.ResultSet - {conn-10042, pstmt-20163, rs-50376} Header: [scenicareaID, sName, tprice, sOpenTime, sAddress, numberSold]
+DEBUG http-nio-8080-exec-2 druid.sql.ResultSet - {conn-10042, pstmt-20163, rs-50376} Result: [1, 波特禁忌之旅™, 100.0, 8:00-22:00, 哈利波特的魔法世界™, 0]
+DEBUG http-nio-8080-exec-2 druid.sql.ResultSet - {conn-10042, pstmt-20163, rs-50376} Result: [2, 霍格沃茨™城堡黑魔法之夜, 49.0, 8:00-22:00, 哈利波特的魔法世界™, 1]
+DEBUG http-nio-8080-exec-2 druid.sql.ResultSet - {conn-10042, pstmt-20163, rs-50376} Result: [3, 金刚360度3D历险, 0.0, 8:00-22:00, 金刚称霸, 0]
+DEBUG http-nio-8080-exec-2 druid.sql.ResultSet - {conn-10042, pstmt-20163, rs-50376} Result: [4, 淘气旋转过山车, 23.5, 8:00-22:00, 淘气旋转过山车, 2]
+DEBUG http-nio-8080-exec-2 druid.sql.ResultSet - {conn-10042, pstmt-20163, rs-50376} Result: [5, 水世界®, 66.5, 8:00-22:00, 水世界, 0]
+DEBUG http-nio-8080-exec-2 druid.sql.ResultSet - {conn-10042, pstmt-20163, rs-50376} Result: [6, 侏罗纪世界-激流勇进, 168.0, 8:00-22:00, 侏罗纪世界-激流勇进, 2]
+DEBUG http-nio-8080-exec-2 druid.sql.ResultSet - {conn-10042, pstmt-20163, rs-50376} Result: [7, 环球影城动物演员, 68.0, 8:00-22:00, 环球影城动物演员, 2]
+DEBUG http-nio-8080-exec-2 druid.sql.ResultSet - {conn-10042, pstmt-20163, rs-50376} Result: [8, 鹰马的飞行, 98.0, 8:00-22:00, 鹰马的飞行, 1]
+DEBUG http-nio-8080-exec-2 druid.sql.ResultSet - {conn-10042, pstmt-20163, rs-50376} Result: [9, 梦工厂功夫熊猫, 68.0, 8:00-22:00, 梦工厂功夫熊猫, 1]
+DEBUG http-nio-8080-exec-2 druid.sql.ResultSet - {conn-10042, pstmt-20163, rs-50376} Result: [10, 速度与激情——超动力, 328.0, 8:00-22:00, 速度与激情——超动力, 0]
+DEBUG http-nio-8080-exec-2 druid.sql.ResultSet - {conn-10042, pstmt-20163, rs-50376} closed
+DEBUG http-nio-8080-exec-2 druid.sql.Statement - {conn-10042, pstmt-20163} clearParameters. 
+DEBUG http-nio-8080-exec-2 druid.sql.Connection - {conn-10042} pool-recycle
+DEBUG http-nio-8080-exec-4 druid.sql.Connection - {conn-10042} closed
+DEBUG Druid-ConnectionPool-Create-6444791 druid.sql.Connection - {conn-10043,procId-1603992} connected
+DEBUG http-nio-8080-exec-4 druid.sql.Connection - {conn-10043} pool-connect
+DEBUG http-nio-8080-exec-4 druid.sql.Statement - {conn-10043, pstmt-20164} created. SELECT * FROM `Attractions`.`view_overview` ORDER BY scenicareaID;
+DEBUG http-nio-8080-exec-4 druid.sql.Statement - {conn-10043, pstmt-20164} Parameters : []
+DEBUG http-nio-8080-exec-4 druid.sql.Statement - {conn-10043, pstmt-20164} Types : []
+DEBUG http-nio-8080-exec-4 druid.sql.Statement - {conn-10043, pstmt-20164} executed. 64.5479 millis. SELECT * FROM `Attractions`.`view_overview` ORDER BY scenicareaID;
+DEBUG http-nio-8080-exec-4 druid.sql.ResultSet - {conn-10043, pstmt-20164, rs-50377} open
+DEBUG http-nio-8080-exec-4 druid.sql.ResultSet - {conn-10043, pstmt-20164, rs-50377} Header: [scenicareaID, sName, tprice, sOpenTime, sAddress, numberSold]
+DEBUG http-nio-8080-exec-4 druid.sql.ResultSet - {conn-10043, pstmt-20164, rs-50377} Result: [1, 波特禁忌之旅™, 100.0, 8:00-22:00, 哈利波特的魔法世界™, 0]
+DEBUG http-nio-8080-exec-4 druid.sql.ResultSet - {conn-10043, pstmt-20164, rs-50377} Result: [2, 霍格沃茨™城堡黑魔法之夜, 49.0, 8:00-22:00, 哈利波特的魔法世界™, 1]
+DEBUG http-nio-8080-exec-4 druid.sql.ResultSet - {conn-10043, pstmt-20164, rs-50377} Result: [3, 金刚360度3D历险, 0.0, 8:00-22:00, 金刚称霸, 0]
+DEBUG http-nio-8080-exec-4 druid.sql.ResultSet - {conn-10043, pstmt-20164, rs-50377} Result: [4, 淘气旋转过山车, 23.5, 8:00-22:00, 淘气旋转过山车, 2]
+DEBUG http-nio-8080-exec-4 druid.sql.ResultSet - {conn-10043, pstmt-20164, rs-50377} Result: [5, 水世界®, 66.5, 8:00-22:00, 水世界, 0]
+DEBUG http-nio-8080-exec-4 druid.sql.ResultSet - {conn-10043, pstmt-20164, rs-50377} Result: [6, 侏罗纪世界-激流勇进, 168.0, 8:00-22:00, 侏罗纪世界-激流勇进, 2]
+DEBUG http-nio-8080-exec-4 druid.sql.ResultSet - {conn-10043, pstmt-20164, rs-50377} Result: [7, 环球影城动物演员, 68.0, 8:00-22:00, 环球影城动物演员, 2]
+DEBUG http-nio-8080-exec-4 druid.sql.ResultSet - {conn-10043, pstmt-20164, rs-50377} Result: [8, 鹰马的飞行, 98.0, 8:00-22:00, 鹰马的飞行, 1]
+DEBUG http-nio-8080-exec-4 druid.sql.ResultSet - {conn-10043, pstmt-20164, rs-50377} Result: [9, 梦工厂功夫熊猫, 68.0, 8:00-22:00, 梦工厂功夫熊猫, 1]
+DEBUG http-nio-8080-exec-4 druid.sql.ResultSet - {conn-10043, pstmt-20164, rs-50377} Result: [10, 速度与激情——超动力, 328.0, 8:00-22:00, 速度与激情——超动力, 0]
+DEBUG http-nio-8080-exec-4 druid.sql.ResultSet - {conn-10043, pstmt-20164, rs-50377} closed
+DEBUG http-nio-8080-exec-4 druid.sql.Statement - {conn-10043, pstmt-20164} clearParameters. 
+DEBUG http-nio-8080-exec-4 druid.sql.Connection - {conn-10043} pool-recycle
+DEBUG http-nio-8080-exec-4 druid.sql.Connection - {conn-10043} pool-connect
+DEBUG http-nio-8080-exec-4 druid.sql.Statement - {conn-10043, pstmt-20165} created. SELECT tPrice AS basePrice FROM tbl_ticket,tbl_attractions WHERE tbl_ticket.ticketID=tbl_attractions.ticketID;
+DEBUG http-nio-8080-exec-4 druid.sql.Statement - {conn-10043, pstmt-20165} Parameters : []
+DEBUG http-nio-8080-exec-4 druid.sql.Statement - {conn-10043, pstmt-20165} Types : []
+DEBUG http-nio-8080-exec-4 druid.sql.Statement - {conn-10043, pstmt-20165} executed. 64.6505 millis. SELECT tPrice AS basePrice FROM tbl_ticket,tbl_attractions WHERE tbl_ticket.ticketID=tbl_attractions.ticketID;
+DEBUG http-nio-8080-exec-4 druid.sql.ResultSet - {conn-10043, pstmt-20165, rs-50378} open
+DEBUG http-nio-8080-exec-4 druid.sql.ResultSet - {conn-10043, pstmt-20165, rs-50378} Header: [tPrice]
+DEBUG http-nio-8080-exec-4 druid.sql.ResultSet - {conn-10043, pstmt-20165, rs-50378} Result: [100.0]
+DEBUG http-nio-8080-exec-4 druid.sql.ResultSet - {conn-10043, pstmt-20165, rs-50378} closed
+DEBUG http-nio-8080-exec-4 druid.sql.Statement - {conn-10043, pstmt-20165} clearParameters. 
+DEBUG http-nio-8080-exec-4 druid.sql.Connection - {conn-10043} pool-recycle
+DEBUG http-nio-8080-exec-6 druid.sql.Connection - {conn-10043} pool-connect
+DEBUG http-nio-8080-exec-6 druid.sql.Statement - {conn-10043, pstmt-20166} created. SELECT name FROM tbl_user WHERE userID=?
+DEBUG http-nio-8080-exec-6 druid.sql.Statement - {conn-10043, pstmt-20166} Parameters : [1]
+DEBUG http-nio-8080-exec-6 druid.sql.Statement - {conn-10043, pstmt-20166} Types : [VARCHAR]
+DEBUG http-nio-8080-exec-6 druid.sql.Statement - {conn-10043, pstmt-20166} executed. 350.8671 millis. SELECT name FROM tbl_user WHERE userID=?
+DEBUG http-nio-8080-exec-6 druid.sql.ResultSet - {conn-10043, pstmt-20166, rs-50379} open
+DEBUG http-nio-8080-exec-6 druid.sql.ResultSet - {conn-10043, pstmt-20166, rs-50379} Header: [name]
+DEBUG http-nio-8080-exec-6 druid.sql.ResultSet - {conn-10043, pstmt-20166, rs-50379} Result: [张三]
+DEBUG http-nio-8080-exec-6 druid.sql.ResultSet - {conn-10043, pstmt-20166, rs-50379} closed
+DEBUG http-nio-8080-exec-6 druid.sql.Statement - {conn-10043, pstmt-20166} clearParameters. 
+DEBUG http-nio-8080-exec-6 druid.sql.Connection - {conn-10043} pool-recycle
+DEBUG http-nio-8080-exec-5 druid.sql.Connection - {conn-10043} pool-connect
+DEBUG http-nio-8080-exec-5 druid.sql.Statement - {conn-10043, pstmt-20166} Parameters : [123]
+DEBUG http-nio-8080-exec-5 druid.sql.Statement - {conn-10043, pstmt-20166} Types : [VARCHAR]
+DEBUG http-nio-8080-exec-5 druid.sql.Statement - {conn-10043, pstmt-20166} executed. 60.2254 millis. SELECT name FROM tbl_user WHERE userID=?
+DEBUG http-nio-8080-exec-5 druid.sql.ResultSet - {conn-10043, pstmt-20166, rs-50380} open
+DEBUG http-nio-8080-exec-5 druid.sql.ResultSet - {conn-10043, pstmt-20166, rs-50380} Header: [name]
+DEBUG http-nio-8080-exec-5 druid.sql.ResultSet - {conn-10043, pstmt-20166, rs-50380} closed
+DEBUG http-nio-8080-exec-5 druid.sql.Statement - {conn-10043, pstmt-20166} clearParameters. 
+DEBUG http-nio-8080-exec-5 druid.sql.Connection - {conn-10043} pool-recycle
+DEBUG http-nio-8080-exec-8 druid.sql.Connection - {conn-10043} pool-connect
+DEBUG http-nio-8080-exec-8 druid.sql.Statement - {conn-10043, pstmt-20166} Parameters : [123456]
+DEBUG http-nio-8080-exec-8 druid.sql.Statement - {conn-10043, pstmt-20166} Types : [VARCHAR]
+DEBUG http-nio-8080-exec-8 druid.sql.Statement - {conn-10043, pstmt-20166} executed. 56.619 millis. SELECT name FROM tbl_user WHERE userID=?
+DEBUG http-nio-8080-exec-8 druid.sql.ResultSet - {conn-10043, pstmt-20166, rs-50381} open
+DEBUG http-nio-8080-exec-8 druid.sql.ResultSet - {conn-10043, pstmt-20166, rs-50381} Header: [name]
+DEBUG http-nio-8080-exec-8 druid.sql.ResultSet - {conn-10043, pstmt-20166, rs-50381} Result: [fjj]
+DEBUG http-nio-8080-exec-8 druid.sql.ResultSet - {conn-10043, pstmt-20166, rs-50381} closed
+DEBUG http-nio-8080-exec-8 druid.sql.Statement - {conn-10043, pstmt-20166} clearParameters. 
+DEBUG http-nio-8080-exec-8 druid.sql.Connection - {conn-10043} pool-recycle
+DEBUG http-nio-8080-exec-9 druid.sql.Connection - {conn-10043} closed
+DEBUG Druid-ConnectionPool-Create-6444791 druid.sql.Connection - {conn-10044,procId-1603993} connected
+DEBUG http-nio-8080-exec-9 druid.sql.Connection - {conn-10044} pool-connect
+DEBUG http-nio-8080-exec-9 druid.sql.Statement - {conn-10044, pstmt-20167} created. SELECT name FROM tbl_user WHERE userID=?
+DEBUG http-nio-8080-exec-9 druid.sql.Statement - {conn-10044, pstmt-20167} Parameters : [123456789123456]
+DEBUG http-nio-8080-exec-9 druid.sql.Statement - {conn-10044, pstmt-20167} Types : [VARCHAR]
+DEBUG http-nio-8080-exec-9 druid.sql.Statement - {conn-10044, pstmt-20167} executed. 64.0468 millis. SELECT name FROM tbl_user WHERE userID=?
+DEBUG http-nio-8080-exec-9 druid.sql.ResultSet - {conn-10044, pstmt-20167, rs-50382} open
+DEBUG http-nio-8080-exec-9 druid.sql.ResultSet - {conn-10044, pstmt-20167, rs-50382} Header: [name]
+DEBUG http-nio-8080-exec-9 druid.sql.ResultSet - {conn-10044, pstmt-20167, rs-50382} Result: [Matoz]
+DEBUG http-nio-8080-exec-9 druid.sql.ResultSet - {conn-10044, pstmt-20167, rs-50382} closed
+DEBUG http-nio-8080-exec-9 druid.sql.Statement - {conn-10044, pstmt-20167} clearParameters. 
+DEBUG http-nio-8080-exec-9 druid.sql.Connection - {conn-10044} pool-recycle
+DEBUG http-nio-8080-exec-2 druid.sql.Connection - {conn-10044} closed
+DEBUG Druid-ConnectionPool-Create-6444791 druid.sql.Connection - {conn-10045,procId-1603994} connected
+DEBUG http-nio-8080-exec-2 druid.sql.Connection - {conn-10045} pool-connect
+DEBUG http-nio-8080-exec-2 druid.sql.Statement - {conn-10045, pstmt-20168} created. INSERT INTO tbl_trade(tradeID,userID,orderDate,tradeDate,totalPrice,isRefund,tType,numberOfPeople)
+        VALUES (?, ?,?, ?, ?, '0',?,?)
+DEBUG http-nio-8080-exec-2 druid.sql.Statement - {conn-10045, pstmt-20168} Parameters : [16257325502759, 1, 2021-07-08, 2021-07-08 16:22:30, 685.0, adult, 3]
+DEBUG http-nio-8080-exec-2 druid.sql.Statement - {conn-10045, pstmt-20168} Types : [BIGINT, VARCHAR, VARCHAR, VARCHAR, DOUBLE, VARCHAR, INTEGER]
+DEBUG http-nio-8080-exec-2 druid.sql.Statement - {conn-10045, pstmt-20168} executed. 138.591 millis. INSERT INTO tbl_trade(tradeID,userID,orderDate,tradeDate,totalPrice,isRefund,tType,numberOfPeople)
+        VALUES (?, ?,?, ?, ?, '0',?,?)
+DEBUG http-nio-8080-exec-2 druid.sql.Statement - {conn-10045, pstmt-20168} clearParameters. 
+DEBUG http-nio-8080-exec-2 druid.sql.Connection - {conn-10045} pool-recycle
+DEBUG http-nio-8080-exec-2 druid.sql.Connection - {conn-10045} pool-connect
+DEBUG http-nio-8080-exec-2 druid.sql.Statement - {conn-10045, pstmt-20169} created. INSERT INTO tbl_tradeDetail (tradeID,ticketID,userID,tprice)
+        VALUES
+          
+            (?, ?, ?,?)
+         , 
+            (?, ?, ?,?)
+         , 
+            (?, ?, ?,?)
+         , 
+            (?, ?, ?,?)
+         , 
+            (?, ?, ?,?)
+         , 
+            (?, ?, ?,?)
+         , 
+            (?, ?, ?,?)
+DEBUG http-nio-8080-exec-2 druid.sql.Statement - {conn-10045, pstmt-20169} Parameters : [16257325502759, -1, 1, 100.0, 16257325502759, -1, 123456, 100.0, 16257325502759, 1, 123456, 100.0, 16257325502759, 2, 123456, 49.0, 16257325502759, -1, 123456789123456, 100.0, 16257325502759, 6, 123456789123456, 168.0, 16257325502759, 7, 123456789123456, 68.0]
+DEBUG http-nio-8080-exec-2 druid.sql.Statement - {conn-10045, pstmt-20169} Types : [BIGINT, INTEGER, VARCHAR, DOUBLE, BIGINT, INTEGER, VARCHAR, DOUBLE, BIGINT, INTEGER, VARCHAR, DOUBLE, BIGINT, INTEGER, VARCHAR, DOUBLE, BIGINT, INTEGER, VARCHAR, DOUBLE, BIGINT, INTEGER, VARCHAR, DOUBLE, BIGINT, INTEGER, VARCHAR, DOUBLE]
+DEBUG http-nio-8080-exec-2 druid.sql.Statement - {conn-10045, pstmt-20169} executed. 135.2442 millis. INSERT INTO tbl_tradeDetail (tradeID,ticketID,userID,tprice)
+        VALUES
+          
+            (?, ?, ?,?)
+         , 
+            (?, ?, ?,?)
+         , 
+            (?, ?, ?,?)
+         , 
+            (?, ?, ?,?)
+         , 
+            (?, ?, ?,?)
+         , 
+            (?, ?, ?,?)
+         , 
+            (?, ?, ?,?)
+DEBUG http-nio-8080-exec-2 druid.sql.Statement - {conn-10045, pstmt-20169} clearParameters. 
+DEBUG http-nio-8080-exec-2 druid.sql.Connection - {conn-10045} pool-recycle
+DEBUG http-nio-8080-exec-4 druid.sql.Connection - {conn-10045} closed
+DEBUG Druid-ConnectionPool-Create-6444791 druid.sql.Connection - {conn-10046,procId-1603997} connected
+DEBUG http-nio-8080-exec-4 druid.sql.Connection - {conn-10046} pool-connect
+DEBUG http-nio-8080-exec-4 druid.sql.Statement - {conn-10046, pstmt-20170} created. SELECT
+            tbl_trade.tradeID AS tradeID,
+            tbl_user.userID AS uid,
+            name,
+            telnumber,
+            tType,
+            totalPrice AS price,
+            orderDate,
+            tradeDate,
+            isRefund,
+            tbl_trade.numberOfPeople AS numberOfPeople
+        FROM tbl_trade,tbl_user
+        WHERE
+            tbl_trade.userID = tbl_user.userID AND
+                tbl_trade.tradeID IN (
+                SELECT DISTINCT
+                    tbl_tradeDetail.tradeID
+                FROM tbl_tradeDetail
+                WHERE userID = ?
+            );
+DEBUG http-nio-8080-exec-4 druid.sql.Statement - {conn-10046, pstmt-20170} Parameters : [1]
+DEBUG http-nio-8080-exec-4 druid.sql.Statement - {conn-10046, pstmt-20170} Types : [VARCHAR]
+DEBUG http-nio-8080-exec-4 druid.sql.Statement - {conn-10046, pstmt-20170} executed. 71.7744 millis. SELECT
+            tbl_trade.tradeID AS tradeID,
+            tbl_user.userID AS uid,
+            name,
+            telnumber,
+            tType,
+            totalPrice AS price,
+            orderDate,
+            tradeDate,
+            isRefund,
+            tbl_trade.numberOfPeople AS numberOfPeople
+        FROM tbl_trade,tbl_user
+        WHERE
+            tbl_trade.userID = tbl_user.userID AND
+                tbl_trade.tradeID IN (
+                SELECT DISTINCT
+                    tbl_tradeDetail.tradeID
+                FROM tbl_tradeDetail
+                WHERE userID = ?
+            );
+DEBUG http-nio-8080-exec-4 druid.sql.ResultSet - {conn-10046, pstmt-20170, rs-50383} open
+DEBUG http-nio-8080-exec-4 druid.sql.ResultSet - {conn-10046, pstmt-20170, rs-50383} Header: [tradeID, userID, name, telnumber, tType, totalPrice, orderDate, tradeDate, isRefund, numberOfPeople]
+DEBUG http-nio-8080-exec-4 druid.sql.ResultSet - {conn-10046, pstmt-20170, rs-50383} Result: [16257305630111, 1, 张三, 123456, group, 1110.6, 2021-07-08, 2021-07-08 15:49:23.0, 0, 5]
+DEBUG http-nio-8080-exec-4 druid.sql.ResultSet - {conn-10046, pstmt-20170, rs-50383} Result: [16257325502759, 1, 张三, 123456, adult, 685.0, 2021-07-08, 2021-07-08 16:22:30.0, 0, 3]
+DEBUG http-nio-8080-exec-4 druid.sql.ResultSet - {conn-10046, pstmt-20170, rs-50383} closed
+DEBUG http-nio-8080-exec-4 druid.sql.Statement - {conn-10046, pstmt-20170} clearParameters. 
+DEBUG http-nio-8080-exec-4 druid.sql.Connection - {conn-10046} pool-recycle
+DEBUG http-nio-8080-exec-4 druid.sql.Connection - {conn-10046} pool-connect
+DEBUG http-nio-8080-exec-4 druid.sql.Statement - {conn-10046, pstmt-20171} created. SELECT
+            tbl_user.userID AS uid,
+            name,
+            telnumber,
+            tbl_tradeDetail.tprice AS price
+        FROM tbl_user,tbl_tradeDetail
+        WHERE tbl_user.userID=tbl_tradeDetail.userID AND
+            tbl_tradeDetail.tradeID = ? AND
+            tbl_tradeDetail.ticketID=1 AND
+                tbl_user.userID IN
+                (SELECT DISTINCT tbl_tradeDetail.userID
+                 FROM tbl_tradeDetail
+                 WHERE
+                     tbl_tradeDetail.tradeID = ? AND
+                     tbl_tradeDetail.ticketID=1);
+DEBUG http-nio-8080-exec-4 druid.sql.Statement - {conn-10046, pstmt-20171} Parameters : [16257305630111, 16257305630111]
+DEBUG http-nio-8080-exec-4 druid.sql.Statement - {conn-10046, pstmt-20171} Types : [BIGINT, BIGINT]
+DEBUG http-nio-8080-exec-4 druid.sql.Statement - {conn-10046, pstmt-20171} executed. 63.1018 millis. SELECT
+            tbl_user.userID AS uid,
+            name,
+            telnumber,
+            tbl_tradeDetail.tprice AS price
+        FROM tbl_user,tbl_tradeDetail
+        WHERE tbl_user.userID=tbl_tradeDetail.userID AND
+            tbl_tradeDetail.tradeID = ? AND
+            tbl_tradeDetail.ticketID=1 AND
+                tbl_user.userID IN
+                (SELECT DISTINCT tbl_tradeDetail.userID
+                 FROM tbl_tradeDetail
+                 WHERE
+                     tbl_tradeDetail.tradeID = ? AND
+                     tbl_tradeDetail.ticketID=1);
+DEBUG http-nio-8080-exec-4 druid.sql.ResultSet - {conn-10046, pstmt-20171, rs-50384} open
+DEBUG http-nio-8080-exec-4 druid.sql.ResultSet - {conn-10046, pstmt-20171, rs-50384} Header: [userID, name, telnumber, tprice]
+DEBUG http-nio-8080-exec-4 druid.sql.ResultSet - {conn-10046, pstmt-20171, rs-50384} Result: [1, 张三, 123456, 100.0]
+DEBUG http-nio-8080-exec-4 druid.sql.ResultSet - {conn-10046, pstmt-20171, rs-50384} Result: [10, 王大锤, 123, 100.0]
+DEBUG http-nio-8080-exec-4 druid.sql.ResultSet - {conn-10046, pstmt-20171, rs-50384} Result: [2, 李四, 123, 100.0]
+DEBUG http-nio-8080-exec-4 druid.sql.ResultSet - {conn-10046, pstmt-20171, rs-50384} Result: [3, 王五, 123, 100.0]
+DEBUG http-nio-8080-exec-4 druid.sql.ResultSet - {conn-10046, pstmt-20171, rs-50384} Result: [4, 赵六, 123, 100.0]
+DEBUG http-nio-8080-exec-4 druid.sql.ResultSet - {conn-10046, pstmt-20171, rs-50384} closed
+DEBUG http-nio-8080-exec-4 druid.sql.Statement - {conn-10046, pstmt-20171} clearParameters. 
+DEBUG http-nio-8080-exec-4 druid.sql.Connection - {conn-10046} pool-recycle
+DEBUG http-nio-8080-exec-4 druid.sql.Connection - {conn-10046} pool-connect

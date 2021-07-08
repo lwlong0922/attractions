@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.database.attractions.mapper.ViewMapper">
+    <!--    OverView getOverView();-->
+    <!--    List<Map<String, Object>> getSpotOverView();-->
+    <select id="getOverView" resultType="com.database.attractions.bean.OverView">
+        SELECT aName,remain FROM tbl_attractions,tbl_ticketremain WHERE dateTime=#{date};
+    </select>
+
+    <select id="getSpotOverView" resultType="java.util.LinkedHashMap">
+        SELECT * FROM `Attractions`.`view_overview` ORDER BY scenicareaID;
+    </select>
+
+    <select id="getTicketView" resultType="com.database.attractions.bean.TicketView">
+        SELECT tPrice AS basePrice FROM tbl_ticket,tbl_attractions WHERE tbl_ticket.ticketID=tbl_attractions.ticketID;
+    </select>
+
+</mapper>

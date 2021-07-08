@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.database.attractions.mapper.TradeMapper">
+
+    <select id="getTrades" resultType="java.util.LinkedHashMap">
+        SELECT
+            tbl_trade.tradeID AS tradeID,
+            tbl_user.userID AS uid,
+            name,
+            telnumber,
+            tType,
+            totalPrice AS price,
+            orderDate,
+            tradeDate,
+            isRefund,
+            tbl_trade.numberOfPeople AS numberOfPeople
+        FROM tbl_trade,tbl_user
+        WHERE
+            tbl_trade.userID = tbl_user.userID AND
+                tbl_trade.tradeID IN (
+                SELECT DISTINCT
+                    tbl_tradeDetail.tradeID
+                FROM tbl_tradeDetail
+                WHERE userID = #{uid}
+            );
+    </select>
+
+    <select id="getOrders" resultType="java.util.LinkedHashMap">
+        SELECT
+            tbl_user.userID AS uid,
+            name,
+            telnumber,
+            tbl_tradeDetail.tprice AS price
+        FROM tbl_user,tbl_tradeDetail
+        WHERE tbl_user.userID=tbl_tradeDetail.userID AND
+            tbl_tradeDetail.tradeID = #{tradeID} AND
+            tbl_tradeDetail.ticketID=1 AND
+                tbl_user.userID IN
+                (SELECT DISTINCT tbl_tradeDetail.userID
+                 FROM tbl_tradeDetail
+                 WHERE
+                     tbl_tradeDetail.tradeID = #{tradeID} AND
+                     tbl_tradeDetail.ticketID=1);
+    </select>
+
+    <select id="getExtraSpots" resultType="java.util.LinkedHashMap">
+        SELECT
+            scenicareaID AS sid,
+            sName AS name,
+            tprice
+        FROM tbl_scenicarea,tbl_tradeDetail
+        WHERE
+            tbl_tradeDetail.tradeID=#{tradeID} AND
+            userID = #{userID} AND
+            tbl_tradeDetail.ticketID!=1 AND
+            tbl_scenicarea.ticketID = tbl_tradeDetail.ticketID;
+    </select>
+
+    <insert id="insertTrade" parameterType="com.database.attractions.bean.Trade">
+        INSERT INTO tbl_trade(tradeID,userID,orderDate,tradeDate,totalPrice,isRefund,tType,numberOfPeople)
+        VALUES (#{tradeID}, #{uid},#{orderDate}, #{tradeDate}, #{price}, '0',#{tType},#{numberOfPeople})
+    </insert>
+
+    <insert id="insertTradeDetail" parameterType="com.database.attractions.bean.trade.TradeDetail">
+        INSERT INTO tbl_tradeDetail (tradeID,ticketID,userID,tprice)
+        VALUES
+        <foreach collection ="list" item="tradeDetail" separator =",">
+            (#{tradeDetail.tradeID}, #{tradeDetail.sid}, #{tradeDetail.userID},#{tradeDetail.tPrice})
+        </foreach >
+    </insert>
+
+    <update id="refundTrade">
+        UPDATE tbl_trade SET isRefund=1 WHERE tradeID=#{tradeID}
+    </update>
+
+</mapper>
